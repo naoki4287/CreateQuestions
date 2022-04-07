@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/create', [HomeController::class, 'create'])->name('create');
+Route::post('/post', [HomeController::class, 'post'])->name('post');
+Route::get('/edit', [HomeController::class, 'edit'])->name('edit');
 
 require __DIR__.'/auth.php';
