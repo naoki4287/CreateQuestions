@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-// Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/post', [HomeController::class, 'post'])->name('post');
 Route::get('/edit', [HomeController::class, 'edit'])->name('edit');

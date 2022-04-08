@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-  public function index()
+  public function home()
   {
     $data = [
       "msg" => "作成したページはありません。" . "\n" . "右下の＋ボタンを押して問題を作成してください。"
     ];
-    return view('index', $data);
+    return view('home', $data);
   }
 
   public function post(Request $request)
   {
-    if (!isset($request)) {
+    if (empty($request)) {
       $posts = $request->all();
       $title = $request->validate(['title' => 'required']);
   
@@ -29,7 +29,7 @@ class HomeController extends Controller
       ];
 
 
-    return view('index', $data);
+    return view('home', $data);
   }
 
   public function create () 
