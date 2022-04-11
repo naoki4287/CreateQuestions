@@ -655,6 +655,24 @@ select {
 .bottom-28 {
   bottom: 7rem;
 }
+.bottom-56 {
+  bottom: 14rem;
+}
+.right-40 {
+  right: 10rem;
+}
+.bottom-80 {
+  bottom: 20rem;
+}
+.right-52 {
+  right: 13rem;
+}
+.bottom-8 {
+  bottom: 2rem;
+}
+.bottom-96 {
+  bottom: 24rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -862,6 +880,9 @@ select {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.cursor-auto {
+  cursor: auto;
 }
 .resize-none {
   resize: none;
@@ -1356,6 +1377,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1395,6 +1420,10 @@ select {
 .hover\:text-red-400:hover {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
   z-index: 10;
@@ -1446,6 +1475,10 @@ select {
 .focus\:text-gray-800:focus {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+.focus\:text-white:focus {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .focus\:outline-none:focus {
   outline: 2px solid transparent;

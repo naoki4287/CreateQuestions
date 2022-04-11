@@ -11,12 +11,6 @@ class HomeController extends Controller
 {
   public function home()
   {
-
-
-    // $data = [
-    //   "msg" => "作成したページはありません。" . "\n" . "右下の＋ボタンを押して問題を作成してください。"
-    // ];
-
     // titleを取得
     $titles = question::select('questions.*')
       ->where('user_id', '=', \Auth::id())
@@ -27,13 +21,11 @@ class HomeController extends Controller
     return view('home', compact('titles'));
   }
 
-  public function post(Request $request)
+  public function insert(Request $request)
   {
-    // if (isset($request)) {
-    //   $request->validate(['title' => 'required']);
-    // }
     $posts = $request->all();
-
+    dd($posts);
+    
     question::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
 
     return redirect(route('home'));
@@ -44,8 +36,15 @@ class HomeController extends Controller
     return view('create');
   }
 
-  public function edit(Request $request)
+  public function edit($id)
   {
     return view('edit');
+  }
+
+  public function update (Request $request) 
+  {
+    $posts = $request->all();
+    
+    question::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'user_id' => \Auth::id()]);
   }
 }

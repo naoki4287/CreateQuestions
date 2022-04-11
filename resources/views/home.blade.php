@@ -7,13 +7,15 @@
       @foreach ($titles as $title)
       <li class="max-w-md border-2 border-white mx-auto mb-2 py-2 rounded-md cursor-pointer hover:bg-indigo-600">{{ $title['title'] }}
         <i class="fa-solid fa-trash-can float-right pt-1 pr-4 hover:text-red-400"></i>
-        <i class="fa-solid fa-pen float-right pt-1 pr-4 hover:text-green-400"></i></li> 
-      @endforeach
-    </ul>
-    @endif
-
-    <form class="flex justify-end static" action="{{ route('create') }}">
-      <button class="fixed bottom-28 right-20"><i class="fas fa-4x fa-plus-circle text-white"></i></button>
-    </form>
+        <a href="/edit/{id}"><i class="fa-solid fa-pen float-right pt-1 pr-4 hover:text-green-400"></i></a></li> 
+        @endforeach
+      </ul>
+      @endif
+      
+      <div class="flex justify-end static">
+        <a href="/create"><i class="fas fa-4x fa-plus-circle fixed text-white bottom-28 right-20"></i></a>
+      </div>
+    
+    
   </div>
 </x-app-layout>
