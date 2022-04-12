@@ -24,7 +24,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/create', [HomeController::class, 'create'])->name('create');
-Route::post('/post', [HomeController::class, 'post'])->name('post');
-Route::get('/edit', [HomeController::class, 'edit'])->name('edit');
+Route::post('/insert', [HomeController::class, 'insert'])->name('insert');
+Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
+Route::post('/update', [HomeController::class, 'update'])->name('update');
+Route::get('/questions', [HomeController::class, 'questions'])->name('questions');
+
+
 
 require __DIR__.'/auth.php';

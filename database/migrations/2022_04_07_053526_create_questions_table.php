@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
           $table->unsignedBigInteger('id', true);
           $table->string('title');
-          $table->text('content')->nullable();
+          $table->text('question')->nullable();
+          $table->text('answer')->nullable();
           $table->unsignedBigInteger('user_id');
           $table->softDeletes();
           $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
