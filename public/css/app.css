@@ -682,6 +682,9 @@ select {
 .float-right {
   float: right;
 }
+.m-60 {
+  margin: 15rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -693,6 +696,18 @@ select {
 .my-40 {
   margin-top: 10rem;
   margin-bottom: 10rem;
+}
+.my-60 {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.mx-20 {
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -771,6 +786,15 @@ select {
 }
 .ml-0 {
   margin-left: 0px;
+}
+.mb-24 {
+  margin-bottom: 6rem;
+}
+.mt-32 {
+  margin-top: 8rem;
+}
+.mt-28 {
+  margin-top: 7rem;
 }
 .block {
   display: block;
@@ -1047,6 +1071,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(55 48 163 / var(--tw-bg-opacity));
 }
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1055,6 +1083,9 @@ select {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1424,6 +1455,10 @@ select {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:text-yellow-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
   z-index: 10;

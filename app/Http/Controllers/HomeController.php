@@ -47,4 +47,9 @@ class HomeController extends Controller
     
     question::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'user_id' => \Auth::id()]);
   }
+
+  public function questions()
+  {
+    return view('questions');
+  }
 }
