@@ -7,7 +7,9 @@
       @foreach ($titles as $title)
       <li class="max-w-lg border-2 border-white truncate mx-auto mb-2 px-2 py-4 rounded-md cursor-pointer hover:bg-indigo-600"><span class="max-w-xl pl-4">{{ $title['title'] }}</span>
         <i class="fa-solid fa-trash-can float-right pt-1 pr-4 hover:text-red-400"></i>
-        <a href="/edit/{id}"><i class="fa-solid fa-pen float-right pt-1 pr-4 pl-3 hover:text-green-400"></i></a></li>
+        <a href="/edit/{id}"><i class="fa-solid fa-pen float-right pt-1 pr-4 hover:text-green-400"></i></a>
+        <a href="/questions"><i class="fa-solid fa-play float-right pt-1 pr-4 hover:text-yellow-400"></i></a>
+      </li> 
         @endforeach
       </ul>
       @endif

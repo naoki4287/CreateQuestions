@@ -50,4 +50,9 @@ class HomeController extends Controller
 
     return view('edit');
   }
+
+  public function questions()
+  {
+    return view('questions');
+  }
 }
