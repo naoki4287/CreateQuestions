@@ -673,6 +673,9 @@ select {
 .bottom-96 {
   bottom: 24rem;
 }
+.right-60 {
+  right: 15rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -681,6 +684,9 @@ select {
 }
 .float-right {
   float: right;
+}
+.m-60 {
+  margin: 15rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -693,6 +699,18 @@ select {
 .my-40 {
   margin-top: 10rem;
   margin-bottom: 10rem;
+}
+.my-60 {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.mx-20 {
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -772,8 +790,23 @@ select {
 .ml-0 {
   margin-left: 0px;
 }
+.mb-24 {
+  margin-bottom: 6rem;
+}
+.mt-32 {
+  margin-top: 8rem;
+}
+.mt-28 {
+  margin-top: 7rem;
+}
 .block {
   display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
 }
 .flex {
   display: flex;
@@ -834,6 +867,9 @@ select {
 }
 .w-auto {
   width: auto;
+}
+.w-96 {
+  width: 24rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -938,6 +974,11 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rounded-md {
   border-radius: 0.375rem;
@@ -1047,6 +1088,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(55 48 163 / var(--tw-bg-opacity));
 }
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1055,6 +1100,9 @@ select {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1087,6 +1135,14 @@ select {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
@@ -1123,6 +1179,12 @@ select {
 }
 .pr-2 {
   padding-right: 0.5rem;
+}
+.pl-4 {
+  padding-left: 1rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
 }
 .text-center {
   text-align: center;
@@ -1424,6 +1486,10 @@ select {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:text-yellow-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
   z-index: 10;
