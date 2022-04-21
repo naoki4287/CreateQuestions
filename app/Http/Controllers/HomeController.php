@@ -53,6 +53,13 @@ class HomeController extends Controller
 
   public function questions()
   {
-    return view('questions');
+    $question_answers = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->whereNull('deleted_at')
+      ->orderBy('updated_at', 'DESC')
+      ->get();
+
+    return view('questions', compact('question_answers'));
+
   }
 }

@@ -1,7 +1,10 @@
 <x-app-layout>
   <div>
     <div class="mx-20 mt-32 p-4 text-center text-white border-2 rounded-md">
-    問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文問題文
+      <? shuffle($question_answers) ?>
+      @foreach ($question_answers as $question_answer)
+      <div>{{ $question_answer['question'] }}</div>
+      @endforeach
     </div>
     <form class="text-center mt-28" action="" method="post">
       <input class="w-80 h-8 rounded-lg placeholder:pl-2 outline-none" type="text" name="answer" placeholder="解答"><br>
