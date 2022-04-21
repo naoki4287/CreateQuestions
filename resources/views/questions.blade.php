@@ -10,5 +10,6 @@
       <input class="w-80 h-8 rounded-lg placeholder:pl-2 outline-none" type="text" name="answer" placeholder="解答"><br>
       <button class="mt-16 w-80 bg-blue-500 hover:bg-blue-300 text-white font-bold py-2 px-4 rounded-md" type="submit"><i class="fa-solid fa-check"></i></button>
     </form>
+    <script src="{{ asset('js/questions.js') }}"></script>
   </div>
 </x-app-layout>

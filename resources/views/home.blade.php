@@ -17,7 +17,5 @@
       <a href="{{ route('create')}}"><i class="fas fa-4x fa-plus-circle fixed text-white bottom-28 right-20"></i></a>
     </div>
     <script src="{{ asset('js/home.js') }}"></script>
-
-
   </div>
 </x-app-layout>
