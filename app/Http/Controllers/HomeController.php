@@ -60,5 +60,6 @@ class HomeController extends Controller
       ->get();
 
     return view('questions', compact('question_answers'));
+
   }
 }
