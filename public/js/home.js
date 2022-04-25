@@ -1,7 +1,15 @@
 "use strict";
 
-const delbtn = document.getElementById('delete')
+const open = document.getElementById("open");
+const close = document.querySelector(".close");
+const modal = document.querySelector(".modal");
+const questions = document.getElementById('questions');
+const question = document.getElementsByClassName('question');
 
-delbtn.addEventListener("click", () => {
-    alert("削除しますか？");
+questions.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+});
+
+close.addEventListener("click", () => {
+  modal.classList.add("hidden");
 });

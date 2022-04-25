@@ -45,10 +45,11 @@ class HomeController extends Controller
   public function update (Request $request) 
   {
     $posts = $request->all();
+    $title_id = $request->cookie();
     
-    question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'user_id' => \Auth::id()]);
+    question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['id'], 'user_id' => \Auth::id()]);
 
-    return view('edit');
+    return redirect('edit/{id}');
   }
 
   public function questions()
