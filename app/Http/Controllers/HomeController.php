@@ -25,7 +25,6 @@ class HomeController extends Controller
   public function insert(Request $request)
   {
     $posts = $request->all();
-    
     title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
 
     return redirect(route('home'));
@@ -45,11 +44,10 @@ class HomeController extends Controller
   public function update (Request $request) 
   {
     $posts = $request->all();
-    $title_id = $request->cookie();
-    
-    question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['id'], 'user_id' => \Auth::id()]);
+    $edit_title = $posts['titleID'];
+    question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['titleID'], 'user_id' => \Auth::id()]);
 
-    return redirect('edit/{id}');
+    return redirect()->back()->with(['edit_title' => $edit_title]);
   }
 
   public function questions()
