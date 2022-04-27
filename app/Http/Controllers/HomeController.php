@@ -65,6 +65,6 @@ class HomeController extends Controller
       ->orderBy('updated_at', 'DESC')
       ->get();
 
-    return view('questions', compact('question_answers', 'edit_title'));
+    return view('questions', compact('question_answers'));
   }
 }
