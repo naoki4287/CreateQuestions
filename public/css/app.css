@@ -622,6 +622,30 @@ select {
 .top-0 {
   top: 0px;
 }
+.top-20 {
+  top: 5rem;
+}
+.top-36 {
+  top: 9rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.bottom-20 {
+  bottom: 5rem;
+}
+.bottom-2 {
+  bottom: 0.5rem;
+}
+.bottom-4 {
+  bottom: 1rem;
+}
+.bottom-8 {
+  bottom: 2rem;
+}
+.bottom-6 {
+  bottom: 1.5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -630,6 +654,12 @@ select {
 }
 .float-right {
   float: right;
+}
+.m-auto {
+  margin: auto;
+}
+.m-20 {
+  margin: 5rem;
 }
 .my-40 {
   margin-top: 10rem;
@@ -642,6 +672,10 @@ select {
 .mx-20 {
   margin-left: 5rem;
   margin-right: 5rem;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -712,6 +746,42 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mt-auto {
+  margin-top: auto;
+}
+.ml-20 {
+  margin-left: 5rem;
+}
+.ml-48 {
+  margin-left: 12rem;
+}
+.mr-48 {
+  margin-right: 12rem;
+}
+.mr-80 {
+  margin-right: 20rem;
+}
+.ml-80 {
+  margin-left: 20rem;
+}
+.mt-20 {
+  margin-top: 5rem;
+}
+.mt-40 {
+  margin-top: 10rem;
+}
+.ml-40 {
+  margin-left: 10rem;
+}
+.mb-40 {
+  margin-bottom: 10rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .block {
   display: block;
 }
@@ -777,6 +847,9 @@ select {
 }
 .w-auto {
   width: auto;
+}
+.w-40 {
+  width: 10rem;
 }
 .max-w-lg {
   max-width: 32rem;
@@ -933,6 +1006,14 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
+.border-red-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 202 202 / var(--tw-border-opacity));
+}
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -960,6 +1041,10 @@ select {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1037,6 +1122,15 @@ select {
 }
 .pt-3 {
   padding-top: 0.75rem;
+}
+.pt-20 {
+  padding-top: 5rem;
+}
+.pt-0 {
+  padding-top: 0px;
+}
+.pt-40 {
+  padding-top: 10rem;
 }
 .text-center {
   text-align: center;
@@ -1275,6 +1369,10 @@ select {
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.hover\:bg-blue-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
