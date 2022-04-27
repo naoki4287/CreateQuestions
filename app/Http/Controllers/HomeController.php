@@ -50,14 +50,21 @@ class HomeController extends Controller
     return redirect()->back()->with(['edit_title' => $edit_title]);
   }
 
-  public function questions()
+  public function delete (Request $request)
   {
+    title::find($request->titleID)->delete();
+    return redirect()->back();
+  }
+
+  public function questions($id)
+  {
+    $edit_title = title::find($id);
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->whereNull('deleted_at')
       ->orderBy('updated_at', 'DESC')
       ->get();
 
-    return view('questions', compact('question_answers'));
+    return view('questions', compact('question_answers', 'edit_title'));
   }
 }

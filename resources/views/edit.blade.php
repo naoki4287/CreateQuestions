@@ -1,6 +1,7 @@
 <x-app-layout>
   <div>
-    <div>
+    <div class="text-white text-center ">
+      {{ $edit_title['title']}}
     </div>
     <form class="text-center mt-60" action="{{ route('update') }}
 " name="create_question" method="post">
