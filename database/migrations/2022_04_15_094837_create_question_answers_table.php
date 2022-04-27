@@ -15,8 +15,8 @@ return new class extends Migration
   {
     Schema::create('question_answers', function (Blueprint $table) {
       $table->unsignedBigInteger('id', true);
-      $table->text('question');
-      $table->text('answer');
+      $table->text('question', 1000)->unique();
+      $table->text('answer', 1000);
       $table->unsignedBigInteger('title_id');
       $table->unsignedBigInteger('user_id');
       $table->softDeletes();

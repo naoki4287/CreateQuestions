@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateRequest;
+use App\Http\Requests\EditRequest;
 use App\Models\question_answer;
 use App\Models\title;
 use Illuminate\Http\Request;
@@ -22,7 +24,7 @@ class HomeController extends Controller
     return view('home', compact('titles'));
   }
 
-  public function insert(Request $request)
+  public function insert(CreateRequest $request)
   {
     $posts = $request->all();
     title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
@@ -41,7 +43,7 @@ class HomeController extends Controller
     return view('edit', compact('edit_title'));
   }
 
-  public function update (Request $request) 
+  public function update (EditRequest $request) 
   {
     $posts = $request->all();
     $edit_title = $posts['titleID'];

@@ -15,7 +15,7 @@ return new class extends Migration
   {
     Schema::create('titles', function (Blueprint $table) {
       $table->unsignedBigInteger('id', true);
-      $table->string('title', 20);
+      $table->string('title', 20)->unique();
       $table->unsignedBigInteger('user_id');
       $table->softDeletes();
       $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
