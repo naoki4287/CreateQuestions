@@ -27,7 +27,8 @@ Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/insert', [HomeController::class, 'insert'])->name('insert');
 Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
 Route::post('/update', [HomeController::class, 'update'])->name('update');
-Route::get('/questions', [HomeController::class, 'questions'])->name('questions');
+Route::post('/delete', [HomeController::class, 'delete'])->name('delete');
+Route::get('/questions/{id}', [HomeController::class, 'questions'])->name('questions');
 
 
 
