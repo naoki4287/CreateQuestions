@@ -50,11 +50,16 @@ class HomeController extends Controller
     return redirect()->back()->with(['add_title' => $add_title]);
   }
 
-  // public function edit($id)
-  // {
-  //   $edit_title = title::find($id);
-  //   return view('edit', compact('edit_title'));
-  // }
+  public function edit($id)
+  {
+    $edit_title = title::find($id);
+    $question_answers = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->whereNull('deleted_at')
+      ->orderBy('updated_at', 'DESC')
+      ->get();
+    return view('edit', compact('edit_title', 'question_answers'));
+  }
 
   // public function update(EditRequest $request)
   // {
