@@ -12,6 +12,7 @@
           <button type="submit" name="titleID" value="{{ $title['id'] }}"><i class="fa-solid fa-trash-can fa-lg pt-1 pr-4 hover:text-red-400"></i></button>
         </form>
         <a href="/edit/{{ $title['id'] }}"><i class="fa-solid fa-pen fa-lg float-right pt-3 pr-4 hover:text-green-400"></i></a>
+        <a href="/add/{{ $title['id'] }}"><i class="fas fa-lg fa-plus-circle float-right pt-3 pr-4 text-white "></i></a>
         <a href="/questions/{{ $title['id'] }}"><i class="fa-solid fa-play fa-lg float-right pt-3 pr-4 hover:text-yellow-400"></i></a>
       </li>
       @endforeach

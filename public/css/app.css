@@ -649,6 +649,15 @@ select {
 .top-32 {
   top: 8rem;
 }
+.left-8 {
+  left: 2rem;
+}
+.right-8 {
+  right: 2rem;
+}
+.left-20 {
+  left: 5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -663,6 +672,9 @@ select {
 }
 .m-20 {
   margin: 5rem;
+}
+.m-0 {
+  margin: 0px;
 }
 .my-40 {
   margin-top: 10rem;
@@ -679,6 +691,10 @@ select {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+.mx-12 {
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -785,17 +801,41 @@ select {
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
+.ml-8 {
+  margin-left: 2rem;
+}
+.mr-0 {
+  margin-right: 0px;
+}
+.ml-0 {
+  margin-left: 0px;
+}
+.ml-6 {
+  margin-left: 1.5rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
 .block {
   display: block;
 }
 .inline-block {
   display: inline-block;
 }
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
 .inline-flex {
   display: inline-flex;
+}
+.table {
+  display: table;
 }
 .grid {
   display: grid;
@@ -820,6 +860,27 @@ select {
 }
 .h-20 {
   height: 5rem;
+}
+.h-10 {
+  height: 2.5rem;
+}
+.h-12 {
+  height: 3rem;
+}
+.h-1 {
+  height: 0.25rem;
+}
+.h-11 {
+  height: 2.75rem;
+}
+.max-h-96 {
+  max-height: 24rem;
+}
+.max-h-48 {
+  max-height: 12rem;
+}
+.max-h-24 {
+  max-height: 6rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -854,6 +915,9 @@ select {
 .w-40 {
   width: 10rem;
 }
+.w-24 {
+  width: 6rem;
+}
 .max-w-lg {
   max-width: 32rem;
 }
@@ -865,6 +929,9 @@ select {
 }
 .max-w-6xl {
   max-width: 72rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1049,6 +1116,14 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
+.bg-indigo-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+.bg-indigo-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1092,6 +1167,14 @@ select {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 .pl-4 {
   padding-left: 1rem;
@@ -1164,6 +1247,10 @@ select {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 .font-medium {
   font-weight: 500;
@@ -1247,6 +1334,10 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
