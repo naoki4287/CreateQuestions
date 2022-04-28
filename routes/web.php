@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->middleware(['auth'])->name('home');
 Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/insert', [HomeController::class, 'insert'])->name('insert');
 Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
