@@ -1,4 +1,4 @@
-<!-- <x-app-layout>
+<x-app-layout>
   <div>
     <div class="text-white text-center text-3xl relative top-32">
       {{ $add_title['title']}}
@@ -23,4 +23,4 @@
       <input class="w-80 h-8 rounded-lg placeholder:pl-2 outline-none" type="text" name="answer" placeholder="解答" value="{{ old('answer') }}">
     </form>
   </div>
-</x-app-layout> -->
+</x-app-layout>

@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRequest;
-use App\Http\Requests\EditRequest;
+use App\Http\Requests\MakeRequest;
 use App\Models\question_answer;
 use App\Models\title;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -37,22 +35,37 @@ class HomeController extends Controller
     return view('create');
   }
 
-  public function edit($id)
+  public function add($id)
   {
-    $edit_title = title::find($id);
-    return view('edit', compact('edit_title'));
+    $add_title = title::find($id);
+    return view('add', compact('add_title'));
   }
 
-  public function update (EditRequest $request) 
+  public function make(MakeRequest $request)
   {
     $posts = $request->all();
-    $edit_title = $posts['titleID'];
+    $add_title = $posts['titleID'];
     question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['titleID'], 'user_id' => \Auth::id()]);
 
-    return redirect()->back()->with(['edit_title' => $edit_title]);
+    return redirect()->back()->with(['add_title' => $add_title]);
   }
 
-  public function delete (Request $request)
+  // public function edit($id)
+  // {
+  //   $edit_title = title::find($id);
+  //   return view('edit', compact('edit_title'));
+  // }
+
+  // public function update(EditRequest $request)
+  // {
+  //   $posts = $request->all();
+  //   $edit_title = $posts['titleID'];
+  //   question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['titleID'], 'user_id' => \Auth::id()]);
+
+  //   return redirect()->back()->with(['edit_title' => $edit_title]);
+  // }
+
+  public function delete(Request $request)
   {
     title::find($request->titleID)->delete();
     return redirect()->back();
