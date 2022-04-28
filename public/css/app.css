@@ -646,6 +646,9 @@ select {
 .bottom-6 {
   bottom: 1.5rem;
 }
+.top-32 {
+  top: 8rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -1428,6 +1431,10 @@ select {
 .focus\:border-gray-900:focus {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
+}
+.focus\:border-white:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
