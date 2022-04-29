@@ -1,22 +1,13 @@
 <x-app-layout>
   <div>
-    <div class="text-white text-center text-3xl relative top-20">
-      {{ $edit_title['title']}}
-    </div>
-
-    <ul id="questions" class="my-40">
-      @foreach ($question_answers as $question_answer)
-      <li class="max-w-2xl border-2 border-white truncate mx-auto mb-2 px-2 py-4 rounded-md cursor-pointer hover:bg-indigo-600">
-        <a href="/edit/{{ $title['id'] }}">
-          <div class="text-white text-xl ml-4 mr-2">
-            <label for="question">問い：</label>
-            <span class="border-b-2 border-white">{{ $question_answer['question'] }}</span><br>
-            <label for="answer" class="">解答：</label>
-            <span>{{ $question_answer['answer'] }}</span>
-          </div>
-        </a>
-      </li>
-      @endforeach
-    </ul>
+    <!-- @if (isset($posts['question']))
+    <div class="text-white text-center">編集が完了しました</div>
+    @endif -->
+    <form class="text-center mt-60" action="{{ route('update') }}" method="POST">
+      @csrf
+      <input type="hidden" name="QAID" value="{{ $question_answer['id'] }}">
+      <textarea class="w-96  placeholder:pl-2 placeholder:pt-1 outline-none resize-none" name="question" rows="3" placeholder="問題を作成してください" autofocus>{{ $question_answer['question'] }}</textarea><br>
+      <input class="w-96" type="text" name="answer" value="{{ $question_answer['answer'] }}"><br>
+    </form>
   </div>
 </x-app-layout>
