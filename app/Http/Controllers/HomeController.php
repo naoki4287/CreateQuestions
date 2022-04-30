@@ -45,22 +45,34 @@ class HomeController extends Controller
 
   public function make(MakeRequest $request)
   {
-    $posts = $request->all();
-    unset($posts['_token']);
-    $add_title = $posts['titleID'];
-    question_answer::insert(['question' => $posts['question'], 'answer' => $posts['answer'], 'title_id' => $posts['titleID'], 'user_id' => \Auth::id()]);
+    $QA = $request->all();
+    unset($QA['_token']);
+    // dd($QA);
+    question_answer::insert(['question' => $QA['question'], 'answer' => $QA['answer'], 'title_id' => $QA['titleID'], 'user_id' => \Auth::id()]);
 
-    return redirect()->back()->with(['add_title' => $add_title]);
+    return back();
   }
 
-  public function questionlists($id)
+  public function questionlists(Request $request, $id)
   {
     $title = title::find($id);
-    $question_answers = question_answer::select('question_answers.*')
-      ->where('user_id', '=', \Auth::id())
-      ->whereNull('deleted_at')
-      ->orderBy('updated_at', 'DESC')
-      ->get();
+    if (isset($title)) {
+      $question_answers = question_answer::select('question_answers.*')
+        ->where('user_id', '=', \Auth::id())
+        ->where('title_id', '=', $title['id'])
+        ->whereNull('deleted_at')
+        ->orderBy('updated_at', 'DESC')
+        ->get();
+    } else {
+      $id = $request->id;
+      $question_answers = question_answer::select('question_answers.*')
+        ->where('user_id', '=', \Auth::id())
+        ->where('title_id', '=', $id)
+        ->whereNull('deleted_at')
+        ->orderBy('updated_at', 'DESC')
+        ->get();
+    }
+
     return view('questionlists', compact('title', 'question_answers'));
   }
 
@@ -73,15 +85,16 @@ class HomeController extends Controller
   public function update(UpdateRequest $request)
   {
     $QAID = question_answer::find($request->QAID);
+    $titleID = $request->titleID;
     $QAID->fill($request->all())->save();
-    return redirect()->back()->with(['QAID', $QAID]);
-    // return redirect()->route('questionlists')->with(['']);
+    // dd($QAID);
+    return redirect()->action([HomeController::class, 'questionlists'], ['id' => $titleID]);
   }
 
   public function delete(Request $request)
   {
     title::find($request->titleID)->delete();
-    return redirect()->back();
+    return back();
   }
 
   public function questions($id)
