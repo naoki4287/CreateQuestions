@@ -9,6 +9,8 @@ use App\Models\question_answer;
 use App\Models\title;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
+
 class HomeController extends Controller
 {
   public function home()
@@ -56,22 +58,12 @@ class HomeController extends Controller
   public function questionlists(Request $request, $id)
   {
     $title = title::find($id);
-    if (isset($title)) {
-      $question_answers = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $title['id'])
-        ->whereNull('deleted_at')
-        ->orderBy('updated_at', 'DESC')
-        ->get();
-    } else {
-      $id = $request->id;
-      $question_answers = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $id)
-        ->whereNull('deleted_at')
-        ->orderBy('updated_at', 'DESC')
-        ->get();
-    }
+    $question_answers = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->where('title_id', '=', $title['id'])
+      ->whereNull('deleted_at')
+      ->orderBy('updated_at', 'DESC')
+      ->get();
 
     return view('questionlists', compact('title', 'question_answers'));
   }
@@ -97,50 +89,35 @@ class HomeController extends Controller
     return back();
   }
 
-  public function questions(Request $request, $id)
+  public function questions(Request $request, $id, $QAID)
   {
     $title = title::find($id);
-    $QAID = $request->QAID;
-    $titleID = $request->titleID;
-    // dd($titleID);
-
-    if (isset($title)) {
+    // dd($title['id']);
+    // dd($QAID);
+    if (is_null($QAID)) {
       $question_answer = question_answer::select('question_answers.*')
         ->where('user_id', '=', \Auth::id())
         ->where('title_id', '=', $title['id'])
         ->whereNull('deleted_at')
-        // ->orderBy('updated_at', 'DESC')
+        ->orderBy('updated_at', 'ASC')
         ->first();
-      // dd($question_answer);
     } else {
-      $title = title::find($id);
-      $id = $request->id;
       $question_answer = question_answer::select('question_answers.*')
         ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $titleID)
-        ->where('id', '>', $id)
+        ->where('title_id', '=', $title['id'])
+        ->where('id', '>', $QAID)
         ->whereNull('deleted_at')
         ->first();
-      // dd($question_answer);
     }
     return view('questions', compact('question_answer', 'title'));
   }
 
   public function answer(Request $request)
   {
-    $answer = $request->answer;
-    // $QAID = $request->QAID; // + 1 question_answersのid
-    $QAID = $request->QAID + 1; // + 1 question_answersのid
-    $titleID = $request->titleID; // titleのid
-    dd($titleID);
-    // dd($QAID);
-    $question_answer = question_answer::select('question_answers.*')
-      ->where('user_id', '=', \Auth::id())
-      ->where('title_id', '=', $titleID)
-      ->where('id', '>', $QAID)
-      ->whereNull('deleted_at')
-      ->first();
-
-    return redirect()->action([HomeController::class, 'questions'], ['id' => $QAID])->with(['title' => $titleID, 'QAID' => $QAID]);
+    // dd($request);
+    $QAID = $request->QAID;
+    // dd($QAID); // 22
+    $titleID = $request->titleID;
+    return redirect()->action([HomeController::class, 'questions'], ['id' => $titleID, 'QAID' => $QAID]);
   }
 }
