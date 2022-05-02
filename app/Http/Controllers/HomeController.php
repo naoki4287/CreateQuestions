@@ -97,15 +97,50 @@ class HomeController extends Controller
     return back();
   }
 
-  public function questions($id)
+  public function questions(Request $request, $id)
   {
-    $edit_title = title::find($id);
-    $question_answers = question_answer::select('question_answers.*')
-      ->where('user_id', '=', \Auth::id())
-      ->whereNull('deleted_at')
-      ->orderBy('updated_at', 'DESC')
-      ->get();
+    $title = title::find($id);
+    $QAID = $request->QAID;
+    $titleID = $request->titleID;
+    // dd($titleID);
 
-    return view('questions', compact('question_answers', 'edit_title'));
+    if (isset($title)) {
+      $question_answer = question_answer::select('question_answers.*')
+        ->where('user_id', '=', \Auth::id())
+        ->where('title_id', '=', $title['id'])
+        ->whereNull('deleted_at')
+        // ->orderBy('updated_at', 'DESC')
+        ->first();
+      // dd($question_answer);
+    } else {
+      $title = title::find($id);
+      $id = $request->id;
+      $question_answer = question_answer::select('question_answers.*')
+        ->where('user_id', '=', \Auth::id())
+        ->where('title_id', '=', $titleID)
+        ->where('id', '>', $id)
+        ->whereNull('deleted_at')
+        ->first();
+      // dd($question_answer);
+    }
+    return view('questions', compact('question_answer', 'title'));
+  }
+
+  public function answer(Request $request)
+  {
+    $answer = $request->answer;
+    // $QAID = $request->QAID; // + 1 question_answersのid
+    $QAID = $request->QAID + 1; // + 1 question_answersのid
+    $titleID = $request->titleID; // titleのid
+    dd($titleID);
+    // dd($QAID);
+    $question_answer = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->where('title_id', '=', $titleID)
+      ->where('id', '>', $QAID)
+      ->whereNull('deleted_at')
+      ->first();
+
+    return redirect()->action([HomeController::class, 'questions'], ['id' => $QAID])->with(['title' => $titleID, 'QAID' => $QAID]);
   }
 }
