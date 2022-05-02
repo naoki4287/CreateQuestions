@@ -56,22 +56,12 @@ class HomeController extends Controller
   public function questionlists(Request $request, $id)
   {
     $title = title::find($id);
-    if (isset($title)) {
-      $question_answers = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $title['id'])
-        ->whereNull('deleted_at')
-        ->orderBy('updated_at', 'DESC')
-        ->get();
-    } else {
-      $id = $request->id;
-      $question_answers = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $id)
-        ->whereNull('deleted_at')
-        ->orderBy('updated_at', 'DESC')
-        ->get();
-    }
+    $question_answers = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->where('title_id', '=', $title['id'])
+      ->whereNull('deleted_at')
+      ->orderBy('updated_at', 'DESC')
+      ->get();
 
     return view('questionlists', compact('title', 'question_answers'));
   }
@@ -99,7 +89,9 @@ class HomeController extends Controller
 
   public function questions(Request $request, $id)
   {
+    // dd($request);
     $title = title::find($id);
+    // dd($title);
     $QAID = $request->QAID;
     $titleID = $request->titleID;
     // dd($titleID);
@@ -108,12 +100,13 @@ class HomeController extends Controller
       $question_answer = question_answer::select('question_answers.*')
         ->where('user_id', '=', \Auth::id())
         ->where('title_id', '=', $title['id'])
+        ->where('id', '>=', $id)
         ->whereNull('deleted_at')
-        // ->orderBy('updated_at', 'DESC')
+        ->orderBy('updated_at', 'ASC')
         ->first();
       // dd($question_answer);
     } else {
-      $title = title::find($id);
+      dd($request);
       $id = $request->id;
       $question_answer = question_answer::select('question_answers.*')
         ->where('user_id', '=', \Auth::id())
@@ -131,16 +124,11 @@ class HomeController extends Controller
     $answer = $request->answer;
     // $QAID = $request->QAID; // + 1 question_answersのid
     $QAID = $request->QAID + 1; // + 1 question_answersのid
-    $titleID = $request->titleID; // titleのid
-    dd($titleID);
+    $titleID = $request->titleID; // titlesのid
+    // $titleName = $request->titleName; // titlesのtitle
+    // dd($titleID);
+    // dd($titleName);
     // dd($QAID);
-    $question_answer = question_answer::select('question_answers.*')
-      ->where('user_id', '=', \Auth::id())
-      ->where('title_id', '=', $titleID)
-      ->where('id', '>', $QAID)
-      ->whereNull('deleted_at')
-      ->first();
-
-    return redirect()->action([HomeController::class, 'questions'], ['id' => $QAID])->with(['title' => $titleID, 'QAID' => $QAID]);
+    return redirect()->action([HomeController::class, 'questions'], ['id' => $titleID])->with(['title' => $titleID, 'QAID' => $QAID]);
   }
 }
