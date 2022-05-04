@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -33,6 +29,7 @@ Route::post('/update', [HomeController::class, 'update'])->name('update');
 Route::post('/delete', [HomeController::class, 'delete'])->name('delete');
 Route::get('/questions/{id}/{QAID?}', [HomeController::class, 'questions'])->name('questions');
 Route::post('/answer', [HomeController::class, 'answer'])->name('answer');
+Route::get('/result', [HomeController::class, 'result'])->name('result');
 
 
 

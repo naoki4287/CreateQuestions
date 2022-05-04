@@ -822,6 +822,12 @@ select {
 .ml-10 {
   margin-left: 2.5rem;
 }
+.mr-20 {
+  margin-right: 5rem;
+}
+.ml-28 {
+  margin-left: 7rem;
+}
 .block {
   display: block;
 }
