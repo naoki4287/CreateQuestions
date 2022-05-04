@@ -9,7 +9,6 @@ use App\Models\question_answer;
 use App\Models\title;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\isNull;
 
 class HomeController extends Controller
 {
@@ -109,15 +108,26 @@ class HomeController extends Controller
         ->whereNull('deleted_at')
         ->first();
     }
-    return view('questions', compact('question_answer', 'title'));
+
+    if (is_null($question_answer)) {
+      return redirect()->action([HomeController::class, 'result']);
+    } else {
+      return view('questions', compact('question_answer', 'title'));
+    }
   }
 
   public function answer(Request $request)
   {
-    // dd($request);
+    $answers = $request->answer;
+    // dd($answers);
     $QAID = $request->QAID;
     // dd($QAID); // 22
     $titleID = $request->titleID;
     return redirect()->action([HomeController::class, 'questions'], ['id' => $titleID, 'QAID' => $QAID]);
+  }
+
+  public function result()
+  {
+     return view('result');
   }
 }
