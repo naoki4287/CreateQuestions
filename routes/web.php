@@ -27,8 +27,7 @@ Route::get('/questionlists/{id}', [HomeController::class, 'questionlists'])->nam
 Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
 Route::post('/update', [HomeController::class, 'update'])->name('update');
 Route::post('/delete', [HomeController::class, 'delete'])->name('delete');
-Route::get('/questions/{id}/{QAID?}', [HomeController::class, 'questions'])->name('questions');
-Route::post('/answer', [HomeController::class, 'answer'])->name('answer');
+Route::get('/questions/{id}', [HomeController::class, 'questions'])->name('questions');
 Route::get('/result', [HomeController::class, 'result'])->name('result');
 
 

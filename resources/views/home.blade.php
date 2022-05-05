@@ -13,7 +13,7 @@
         </form>
         <a href="/questionlists/{{ $title['id'] }}"><i class="fa-solid fa-pen fa-lg float-right pt-3 pr-4 hover:text-pink-400"></i></a>
         <a href="/add/{{ $title['id'] }}"><i class="fas fa-lg fa-plus-circle float-right pt-3 pr-4 text-white hover:text-green-400"></i></a>
-        <a href="/questions/{{ $title['id'] }}/{QAID?}"><i class="fa-solid fa-play fa-lg float-right pt-3 pr-4 hover:text-yellow-400"></i></a>
+        <a href="/questions/{{ $title['id'] }}"><i class="fa-solid fa-play fa-lg float-right pt-3 pr-4 hover:text-yellow-400"></i></a>
       </li>
       @endforeach
     </ul>
@@ -21,6 +21,6 @@
     <div class="flex justify-end">
       <a href="{{ route('create') }}"><i class="fas fa-4x fa-plus-circle fixed text-white bottom-28 right-20"></i></a>
     </div>
-    <!-- <script src="{{ asset('js/home.js') }}"></script> -->
+    <script src="{{ asset('js/home.js') }}"></script>
   </div>
 </x-app-layout>

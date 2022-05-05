@@ -14,7 +14,6 @@ class HomeController extends Controller
 {
   public function home()
   {
-    // titleを取得
     $titles = title::select('titles.*')
       ->where('user_id', '=', \Auth::id())
       ->whereNull('deleted_at')
@@ -88,46 +87,21 @@ class HomeController extends Controller
     return back();
   }
 
-  public function questions(Request $request, $id, $QAID)
+  public function questions(Request $request, $id)
   {
     $title = title::find($id);
-    // dd($title['id']);
-    // dd($QAID);
-    if (is_null($QAID)) {
-      $question_answer = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $title['id'])
-        ->whereNull('deleted_at')
-        ->orderBy('updated_at', 'ASC')
-        ->first();
-    } else {
-      $question_answer = question_answer::select('question_answers.*')
-        ->where('user_id', '=', \Auth::id())
-        ->where('title_id', '=', $title['id'])
-        ->where('id', '>', $QAID)
-        ->whereNull('deleted_at')
-        ->first();
-    }
+    $question_answers = question_answer::select('question_answers.*')
+      ->where('user_id', '=', \Auth::id())
+      ->where('title_id', '=', $title['id'])
+      ->whereNull('deleted_at')
+      ->orderBy('updated_at', 'ASC')
+      ->get();
 
-    if (is_null($question_answer)) {
-      return redirect()->action([HomeController::class, 'result']);
-    } else {
-      return view('questions', compact('question_answer', 'title'));
-    }
-  }
-
-  public function answer(Request $request)
-  {
-    $answers = $request->answer;
-    // dd($answers);
-    $QAID = $request->QAID;
-    // dd($QAID); // 22
-    $titleID = $request->titleID;
-    return redirect()->action([HomeController::class, 'questions'], ['id' => $titleID, 'QAID' => $QAID]);
+    return view('questions', compact('question_answers', 'title'));
   }
 
   public function result()
   {
-     return view('result');
+    return view('result');
   }
 }
