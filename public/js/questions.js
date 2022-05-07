@@ -1,52 +1,72 @@
 {
+    const question = document.getElementById("question");
+    const modal = document.getElementById("modal");
+    const result = document.getElementById("result");
+    const resultList = document.getElementById("resultList");
+    const inputAnswers = document.getElementById("inputAnswers");
     const input = document.getElementById("input");
     const btn = document.getElementById("btn");
+    const againBtn = document.getElementById("againBtn");
     const QAs = question_answers;
-    console.log(QAs);
     const QAsLength = QAs.length;
     let QAsIndex = 0;
     let score = 0;
-    let userAnswer = [];
+    let userAnswers = [];
 
     const setupQuiz = () => {
-        document.getElementById("question").textContent =
-            QAs[QAsIndex].question;
+        question.textContent = QAs[QAsIndex].question;
         // inputの中を初期化
         input.addEventListener("focus", () => {
             input.value = "";
         });
-        console.log(QAsIndex);
     };
     setupQuiz();
 
     const correctOrWrong = () => {
-        userAnswer[QAsIndex] = input.value;
-        console.log(userAnswer[QAsIndex]);
-        if (QAs[QAsIndex].answer === userAnswer[QAsIndex]) {
+        userAnswers[QAsIndex] = input.value;
+        if (QAs[QAsIndex].answer === userAnswers[QAsIndex]) {
             alert("正解!");
             score++;
         } else {
             alert("不正解!");
         }
-        console.log(userAnswer);
         QAsIndex++;
 
         if (QAsIndex < QAsLength) {
             // 問題がまだあればこちらを実行
             setupQuiz();
         } else {
-          // 問題がもうなければこちらを実行
-            // window.alert(
-            //     "終了！あなたの正解数は" + score + "/" + QAsLength + "です！"
-            // );
-            window.location.href = '/result';
+            // 問題がもうなければこちらを実行
+            modal.classList.remove("hidden");
+            mask.classList.remove("hidden");
+            result.textContent = `正答率は${score}/${QAsLength}です`;
+
+            for (let i = 0; i < QAsLength; i++) {
+                let Qdiv = document.createElement("div");
+                let Adiv = document.createElement("div");
+                let hr = document.createElement("hr");
+                resultList.appendChild(Qdiv);
+                resultList.appendChild(Adiv);
+                resultList.appendChild(hr);
+                Qdiv.textContent = `問題：${QAs[i].answer}`;
+                Adiv.textContent = `解答：${userAnswers[i]}`;
+                hr.textContent = "<hr>";
+            }
+
+            againBtn.addEventListener("click", () => {
+                window.location.reload();
+                modal.classList.add("hidden");
+                mask.classList.add("hidden");
+                QAsIndex = 0;
+                setupQuiz();
+            });
         }
     };
 
     // inputに答えを記入してエンターを押したら正誤判定
     input.onkeydown = (e) => {
         if (e.key === "Enter") {
-              correctOrWrong();
+            correctOrWrong();
         }
     };
     // buttonを押したら正誤判定

@@ -99,9 +99,4 @@ class HomeController extends Controller
 
     return view('questions', compact('question_answers', 'title'));
   }
-
-  public function result()
-  {
-    return view('result');
-  }
 }
