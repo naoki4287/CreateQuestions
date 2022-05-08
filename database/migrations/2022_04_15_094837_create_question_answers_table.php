@@ -15,14 +15,14 @@ return new class extends Migration
   {
     Schema::create('question_answers', function (Blueprint $table) {
       $table->unsignedBigInteger('id', true);
-      $table->text('question', 1000)->unique();
+      $table->text('question', 1000);
       $table->text('answer', 1000);
       $table->unsignedBigInteger('title_id');
       $table->unsignedBigInteger('user_id');
-      $table->softDeletes();
       $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
       $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
-      $table->foreign('title_id')->references('id')->on('titles');
+      $table->foreign('title_id')->references('id')->on('titles')->cascadeOnDelete()
+      ->cascadeOnUpdate();
       $table->foreign('user_id')->references('id')->on('users');
     });
   }
