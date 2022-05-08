@@ -16,7 +16,6 @@ class HomeController extends Controller
   {
     $titles = title::select('titles.*')
       ->where('user_id', '=', \Auth::id())
-      ->whereNull('deleted_at')
       ->orderBy('updated_at', 'DESC')
       ->get();
 
@@ -59,7 +58,6 @@ class HomeController extends Controller
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->where('title_id', '=', $title['id'])
-      ->whereNull('deleted_at')
       ->orderBy('updated_at', 'DESC')
       ->get();
 
@@ -77,7 +75,6 @@ class HomeController extends Controller
     $QAID = question_answer::find($request->QAID);
     $titleID = $request->titleID;
     $QAID->fill($request->all())->save();
-    // dd($QAID);
     return redirect()->action([HomeController::class, 'questionlists'], ['id' => $titleID]);
   }
 
@@ -93,7 +90,6 @@ class HomeController extends Controller
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->where('title_id', '=', $title['id'])
-      ->whereNull('deleted_at')
       ->orderBy('updated_at', 'ASC')
       ->get();
 
