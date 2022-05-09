@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('guest', [AuthenticatedSessionController::class,'guestLogin'])->name('login.guest');
 
 Route::get('/', [HomeController::class, 'home'])->middleware(['auth'])->name('home');
 Route::get('/create', [HomeController::class, 'create'])->name('create');

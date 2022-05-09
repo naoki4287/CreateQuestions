@@ -10,45 +10,60 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        return view('auth.login');
+  /**
+   * Display the login view.
+   *
+   * @return \Illuminate\View\View
+   */
+
+  // ゲストユーザー用のユーザーIDを定数として定義
+  private const GUEST_USER_ID = 1;
+
+  // ゲストログイン処理
+  public function guestLogin()
+  {
+    // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする
+    if (Auth::loginUsingId(self::GUEST_USER_ID)) {
+      return redirect('/');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(LoginRequest $request)
-    {
-        $request->authenticate();
+    return redirect('/');
+  }
 
-        $request->session()->regenerate();
+  public function create()
+  {
+    return view('auth.login');
+  }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
-    }
+  /**
+   * Handle an incoming authentication request.
+   *
+   * @param  \App\Http\Requests\Auth\LoginRequest  $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function store(LoginRequest $request)
+  {
+    $request->authenticate();
 
-    /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Request $request)
-    {
-        Auth::guard('web')->logout();
+    $request->session()->regenerate();
 
-        $request->session()->invalidate();
+    return redirect()->intended(RouteServiceProvider::HOME);
+  }
 
-        $request->session()->regenerateToken();
+  /**
+   * Destroy an authenticated session.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function destroy(Request $request)
+  {
+    Auth::guard('web')->logout();
 
-        return redirect('/');
-    }
+    $request->session()->invalidate();
+
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+  }
 }
