@@ -715,6 +715,9 @@ select {
 .float-right {
   float: right;
 }
+.float-left {
+  float: left;
+}
 .my-40 {
   margin-top: 10rem;
   margin-bottom: 10rem;
@@ -817,6 +820,18 @@ select {
 }
 .ml-80 {
   margin-left: 20rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mr-20 {
+  margin-right: 5rem;
+}
+.mr-24 {
+  margin-right: 6rem;
+}
+.mr-16 {
+  margin-right: 4rem;
 }
 .block {
   display: block;
