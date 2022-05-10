@@ -18,8 +18,8 @@
       @error('answer')
       <div class="text-white text-center relative bottom-4">{{ $message }}</div>
       @enderror
-      <textarea class="w-4/12 rounded-md outline-none resize-none" name="question" rows="3" placeholder="問題を作成してください" autofocus>{{ old('question') }}</textarea><br>
-      <input class="w-4/12 h-8 rounded-md outline-none" type="text" name="answer" placeholder="解答" value="{{ old('answer') }}">
+      <textarea class="w-4/12 rounded-md outline-none resize-none" name="question" rows="3" placeholder="問題を作成してください" autofocus autocomplete="off">{{ old('question') }}</textarea><br>
+      <input class="w-4/12 h-8 rounded-md outline-none" type="text" name="answer" placeholder="解答" value="{{ old('answer') }}" autocomplete="off">
     </form>
   </div>
 </x-app-layout>

@@ -6,10 +6,6 @@
     const input = document.getElementById("input");
     const btn = document.getElementById("btn");
     const againBtn = document.getElementById("againBtn");
-    // const circle = document.getElementById("circle");
-    // const cross = document.getElementById("cross");
-    const circle = '◯';
-    const cross = '✖️';
     const QAs = question_answers;
     const QAsLength = QAs.length;
     let QAsIndex = 0;
