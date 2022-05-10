@@ -18,8 +18,15 @@ class HomeController extends Controller
       ->where('user_id', '=', \Auth::id())
       ->orderBy('updated_at', 'DESC')
       ->get();
+    
+      $question_answers = title::select('question_answers.question', 'question_answers.answer')
+      ->join('question_answers', 'titles.id', '=', 'question_answers.title_id')
+      ->where('titles.user_id', '=', \Auth::id())
+      ->where('question_answers.user_id', '=', \Auth::id())
+      ->get();
+      // dd($question_answers);
 
-    return view('home', compact('titles'));
+    return view('home', compact('titles', 'question_answers'));
   }
 
   public function insert(CreateRequest $request)

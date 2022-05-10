@@ -1,15 +1,7 @@
 "use strict";
 
-// const open = document.getElementById("open");
-// const close = document.querySelector(".close");
-// const modal = document.querySelector(".modal");
-// const questions = document.getElementById('questions');
-// const question = document.getElementsByClassName('question');
+const questionsBtn = document.getElementById('questionsBtn');
 
-// questions.addEventListener("click", () => {
-//   modal.classList.remove("hidden");
-// });
-
-// close.addEventListener("click", () => {
-//   modal.classList.add("hidden");
-// });
+questionsBtn.addEventListener('click', () => {
+  alert('問題がありません');
+});
