@@ -4,6 +4,7 @@ const answerBtn = document.getElementById("answerBtn");
 const addBtn = document.getElementById("addBtn");
 const editBtn = document.getElementById("editBtn");
 const deleteBtn = document.getElementById("deleteBtn");
+const titleID = document.getElementById("titleID");
 const questions = document.getElementById("questions");
 let listTitle = document.getElementsByClassName("listTitle");
 
@@ -17,17 +18,20 @@ answerBtn.addEventListener("click", () => {
   window.location.href = "/questions/" + id;
 });
 addBtn.addEventListener("click", (e) => {
-        let id = heading.getAttribute("title");
-        console.log(heading);
-        console.log(id);
-        window.location.href = "/add/" + id;
+  let id = heading.getAttribute("title");
+  console.log(heading);
+  console.log(id);
+  window.location.href = "/add/" + id;
 });
 editBtn.addEventListener("click", () => {
   let id = heading.getAttribute("title");
+  console.log(id);
   window.location.href = "/questionlists/" + id;
 });
 deleteBtn.addEventListener("click", () => {
-    alert("削除ボタンを押しました");
+  let id = heading.getAttribute("title");
+  titleID.setAttribute('value', id)
+  console.log(titleID);
 });
 
 // li要素（listTitle）にid属性を付与してli要素にtitleを代入する処理

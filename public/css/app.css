@@ -883,6 +883,9 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-full {
+  height: 100%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1156,6 +1159,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1257,6 +1264,9 @@ select {
 }
 .pl-7 {
   padding-left: 1.75rem;
+}
+.text-left {
+  text-align: left;
 }
 .text-center {
   text-align: center;
