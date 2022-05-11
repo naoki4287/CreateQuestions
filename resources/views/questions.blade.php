@@ -29,6 +29,6 @@
     <script>
       const question_answers = @json($question_answers);
     </script>
-    <script src="{{ asset('js/questions.js') }}"></script>
+    <script type="module" src="{{ asset('js/questions.js') }}"></script>
   </div>
 </x-app-layout>
