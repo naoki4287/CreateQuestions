@@ -1,7 +1,7 @@
 <x-app-layout>
   <div class="">
 
-    <div id="modal" class="hidden w-5/12 text-white bg-indigo-600  rounded-lg z-10">
+    <div id="modal" class="hidden w-5/12 text-white bg-indigo-600  rounded-lg absolute z-10">
       <div id="heading" class="pl-7 pt-6 pb-2 text-2xl border-b-2"></div>
       <div class="mb-8 pl-8 rounded-lg">
         <div id="answerBtn" class="border-b-2 py-4 cursor-pointer hover:text-yellow-400">解答する<i class="fa-solid fa-play fa-lg pl-8"></i></div>
@@ -14,6 +14,7 @@
         </form>
       </div>  
     </div>
+    <div id="mask" class="hidden fixed inset-0 z-0"></div>
 
     @if (count($titles) === 0)
     <h1 class="text-center mt-80 text-3xl text-white">作成したページはありません。<br>右下の＋ボタンを押して問題を作成してください。</h1>
@@ -32,7 +33,7 @@
     </ul>
     @endif
     <div class="flex justify-end">
-      <a href="{{ route('create') }}"><i class="fas fa-4x fa-plus-circle relative text-white bottom-28 right-20"></i></a>
+      <a href="{{ route('create') }}"><i class="fas fa-4x fa-plus-circle fixed text-white bottom-28 right-20"></i></a>
     </div>
   </div>
   <script>

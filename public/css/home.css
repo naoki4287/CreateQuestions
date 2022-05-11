@@ -1,0 +1,13 @@
+#modal {
+  /* transform: translate(0, -500px); */
+}
+
+#modal.hidden {
+  /* transform: translate(0, -500px); */
+
+}
+
+#mask {
+    background: rgba(0, 0, 0, 0.4);
+}
+

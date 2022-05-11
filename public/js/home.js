@@ -46,8 +46,10 @@ titles.map((title) => {
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".listTitle")) {
         modal.classList.add("hidden");
+        mask.classList.add("hidden");
     } else {
         modal.classList.remove("hidden");
+        mask.classList.remove("hidden");
         // console.log(e.target.closest(".listTitle"));
         let id = e.target.getAttribute("id");
         // console.log(id);

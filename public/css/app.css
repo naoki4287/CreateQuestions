@@ -703,6 +703,9 @@ select {
 .top-24 {
   top: 6rem;
 }
+.right-2 {
+  right: 0.5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -843,6 +846,9 @@ select {
 }
 .mr-16 {
   margin-right: 4rem;
+}
+.mt-auto {
+  margin-top: auto;
 }
 .block {
   display: block;
