@@ -724,6 +724,9 @@ select {
 .m-4 {
   margin: 1rem;
 }
+.m-40 {
+  margin: 10rem;
+}
 .my-40 {
   margin-top: 10rem;
   margin-bottom: 10rem;

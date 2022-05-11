@@ -1,6 +1,6 @@
 <x-app-layout>
   <div>
-    <ul class="my-40">
+    <ul class="mt-20">
       @foreach ($question_answers as $question_answer)
       <li class="max-w-2xl border-2 border-white truncate mx-auto mb-2 px-2 py-4 rounded-md cursor-pointer hover:bg-indigo-600">
         <a href="/edit/{{ $question_answer['id'] }}">
