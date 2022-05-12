@@ -17,15 +17,12 @@ answerBtn.addEventListener("click", () => {
   let id = heading.getAttribute("title");
   window.location.href = "/questions/" + id;
 });
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener("click", () => {
   let id = heading.getAttribute("title");
-  console.log(heading);
-  console.log(id);
   window.location.href = "/add/" + id;
 });
 editBtn.addEventListener("click", () => {
   let id = heading.getAttribute("title");
-  console.log(id);
   window.location.href = "/questionlists/" + id;
 });
 deleteBtn.addEventListener("click", () => {
