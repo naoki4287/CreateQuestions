@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -20,22 +21,27 @@ class ExampleTest extends TestCase
     $this->get('/')->assertStatus(302);
     // $response->assertStatus(302);
 
-    // // $response->assertStatus(200); // 302にしてみる
-    // $this->get('/hoge')->assertStatus(404);
-    // $this->get('/create')->assertOk();
-    // $this->get('/questions/{id}')->assertOk();
-    // $this->get('/questionlist/{id}')->assertOk();
-    // $this->get('/add/{id}')->assertOk();
-    // // $this->post('/delete')->assertOk();
+    // $name =  Auth::user()->name;
+    $user = User::find(2);
 
-
-    // $users = [
-    //   'id' => 2,
-    //   'name' => 'wakabashi',
-    //   'email' => 'waka@bayashi',
-    // ];
-    // $this->assertDatabaseHas('users', $users);
-
-    
+    // $response->assertStatus(200); // 302にしてみる
+    $this->get('/hoge')
+      ->assertStatus(404);
+      // $this->get(route('questions', ['id' => 8]))->assertOk();
+    $this->actingAs($user)
+      ->get('/create')
+      ->assertOk();
+    $this->actingAs($user)
+      ->get('/questions/1')
+      ->assertOk();
+    $this->actingAs($user)
+      ->get('/questionlists/1')
+      ->assertOk();
+    $this->actingAs($user)
+      ->get('/add/1')
+      ->assertOk();
+    // $this->actingAs($user)
+    //   ->post('/delete', ['titleID' => 2]);
   }
+
 }
