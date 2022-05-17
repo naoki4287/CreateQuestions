@@ -31,8 +31,8 @@ class HomeController extends Controller
 
   public function insert(CreateRequest $request)
   {
-    $posts = $request->all();
-    unset($posts['_token']);
+    $posts = $request->title;
+    // dd($posts);
     title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
 
     return redirect(route('home'));
@@ -97,7 +97,7 @@ class HomeController extends Controller
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->where('title_id', '=', $title['id'])
-      ->orderBy('updated_at', 'ASC')
+      ->orderBy('created_at', 'ASC')
       ->get();
 
     return view('questions', compact('question_answers', 'title'));
