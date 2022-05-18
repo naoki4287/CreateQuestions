@@ -4,10 +4,22 @@
 
 #modal.hidden {
   /* transform: translate(0, -500px); */
-
 }
 
+#modalSetting {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
 #mask {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#mask2 {
     background: rgba(0, 0, 0, 0.4);
 }
 
