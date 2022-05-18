@@ -28,6 +28,8 @@
     <div id="mask" class="hidden fixed inset-0 z-0"></div>
     <script>
       const question_answers = @json($question_answers);
+      let alertTrue = alertTrue
+      console.log(alertTrue);
     </script>
     <script type="module" src="{{ asset('js/questions.js') }}"></script>
   </div>
