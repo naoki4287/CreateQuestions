@@ -1,7 +1,7 @@
 <x-app-layout>
   <div class="">
 
-    <div id="modal" class="hidden w-6/12 text-white bg-indigo-600  rounded-lg absolute z-10">
+    <div id="modal" class="modal hidden w-6/12 text-white bg-indigo-600  rounded-lg absolute z-10">
       <div id="heading" class="pl-7 pt-6 pb-2 text-2xl border-b-2"></div>
       <div class="mb-8 pl-8 rounded-lg">
         <div id="answerBtn" class="border-b-2 py-4 cursor-pointer hover:text-yellow-400">解答する<i class="fa-solid fa-play fa-lg pl-8"></i></div>
@@ -15,11 +15,11 @@
       </div>  
     </div>
 
-    <div id="modalSetting" class="hidden w-6/12 m-auto text-white bg-indigo-600  rounded-lg z-10">
+    <div id="modalSetting" class="modal hidden w-6/12 m-auto text-white bg-indigo-600  rounded-lg z-20">
       <div class="pl-7 pt-6 pb-2 text-2xl border-b-2">設定</div>
       <div class="mb-8 pl-8">
         <div class="border-b-2 py-4">問題数
-          <select name="" id="numOfQuiz" size="1" class="text-gray-900 ml-4">
+          <select name="" id="numOfQuiz" size="1" class="numOfQuiz text-gray-900 ml-4">
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
@@ -27,12 +27,16 @@
         </div>
         <div class="border-b-2 py-4">問題の順番をシャッフルする<input id="shuffleBtn" type="checkbox" class="text-green-500 ml-4"></div>
         <div class="border-b-2 py-4">正誤判定のアラートを消す<input id="alertBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        <div class="border-b-2 py-4">解答する前に設定画面を表示しない<input id="NoSettingBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        <div class="text-center">
-          <button id="setAnswerBtn" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
-        </div>
-        <input type="hidden" id="alertTrue" name="alertTrue">
-        <input type="hidden" id="alertTrue" name="alertTrue">
+        {{-- <div class="border-b-2 py-4">解答する前に設定画面を表示しない<input id="NoSettingBtn" type="checkbox" class="text-green-500 ml-4"></div> --}}
+        <form action="" name="Qform" method="GET">
+          {{-- @csrf --}}
+          <div class="text-center">
+            <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
+            <input type="hidden" id="optionInput" name="optionInput" value="">
+            <input type="hidden" id="shuffleInput" name="shuffleInput" value="">
+            <input type="hidden" id="alertInput" name="alertInput" value="">
+          </div>
+        </form>
       </div>  
     </div>
     <div id="mask" class="hidden fixed inset-0 z-0"></div>

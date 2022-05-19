@@ -94,13 +94,14 @@ class HomeController extends Controller
   public function questions(Request $request, $id)
   {
     $title = title::find($id);
-    $alertTrue = $request->alertTrue;
+    $setting = $request->only(['optionInput', 'shuffleInput', 'alertInput']);
+    // dd($setting);
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->where('title_id', '=', $title['id'])
       ->orderBy('created_at', 'ASC')
       ->get();
 
-    return view('questions', compact('question_answers', 'title', 'alertTrue'));
+    return view('questions', compact('question_answers', 'title', 'setting'));
   }
 }
