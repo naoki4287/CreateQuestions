@@ -41,6 +41,7 @@
             mask.classList.remove("hidden");
             result.textContent = `正答率は${score}/${QAsLength}です`;
 
+            // resultのモーダルウィンドウ
             for (let i = 0; i < QAsLength; i++) {
                 let Qdiv = document.createElement("div");
                 let Adiv = document.createElement("div");

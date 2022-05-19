@@ -13,7 +13,10 @@ const shuffleBtn = document.getElementById("shuffleBtn");
 const alertBtn = document.getElementById("alertBtn");
 const NoSettingBtn = document.getElementById("NoSettingBtn");
 const setAnswerBtn = document.getElementById("setAnswerBtn");
-const alertTrue = document.getElementById("alertTrue");
+const shuffleInput = document.getElementById("shuffleInput");
+const alertInput = document.getElementById("alertInput");
+const optionInput = document.getElementById("optionInput");
+const mask = document.getElementById("mask");
 const mask2 = document.getElementById("mask2");
 
 let listTitle = document.getElementsByClassName("listTitle");
@@ -32,51 +35,60 @@ const shuffle = (QAs) => {
     return QAs;
 };
 
-
 // 1つ目のモーダルウィンドウでボタンを押された時の処理
 answerBtn.addEventListener("click", () => {
-  // ここにモーダルウィンドウを表示する処理
-  modalSetting.classList.remove("hidden");
-  mask2.classList.remove("hidden");
-  let id = heading.getAttribute("title");
-  
-  // 問題数の処理
-  let Qnum = numOfQuiz.value;
-  console.log(numOfQuiz.value);
-  numOfQuiz.onchange = () => {
+    // ここにモーダルウィンドウを表示する処理
+    modalSetting.classList.remove("hidden");
+    mask2.classList.remove("hidden");
+    let id = heading.getAttribute("title");
+
+    // 問題数の処理
+    let Qnum = numOfQuiz.value;
+    optionInput.setAttribute("value", Qnum);
+    console.log(optionInput.value);
+    numOfQuiz.onchange = () => {
         Qnum = numOfQuiz.value;
-      };
-      
+        optionInput.setAttribute("value", Qnum);
+        console.log(optionInput.value);
+    };
+
     // シャッフルの処理
-    shuffleBtn.addEventListener('click', () => {
-      if (shuffleBtn.checked) {
-        console.log(shuffleBtn.value);
-        const shuffledQuiz = shuffle([...QAs]);
-        console.log(shuffledQuiz);
-      }
-    })
+    shuffleInput.value = false;
+    shuffleBtn.addEventListener("click", () => {
+        if (shuffleBtn.checked) {
+            shuffleInput.value = true;
+            // const shuffledQuiz = shuffle([...QAs]);
+            // console.log(shuffledQuiz);
+        }
+    });
 
     // アラートを消す処理
-    alertBtn.addEventListener('click', () => {
-      if (alertBtn.checked) {
-        let alertOff = true;
-        console.log(alertOff);
-        alertTrue.setAttribute('value', alertOff)
-        console.log(alertTrue.value);
-      }
-    })
+    alertInput.value = false;
+    alertBtn.addEventListener("click", () => {
+        if (alertBtn.checked) {
+            alertInput.value = true;
+            console.log(alertInput.value);
+        }
+    });
 
-    NoSettingBtn.addEventListener('click', () => {
-      if (NoSettingBtn.checked) {
-        let settingOff = true;
-      }
-    })
+    // 設定画面を表示しない処理　後で作成する
+    // NoSettingBtn.addEventListener('click', () => {
+    //   if (NoSettingBtn.checked) {
+    //     let settingOff = true;
+    //   }
+    // })
 
-    if (!NoSettingBtn) {
-        window.location.href = "/questions/" + id;
-    }
-    modalSetting.addEventListener("click", (e) => {
-        if (!e.target.closest("#modalSetting")) {
+    // if (!NoSettingBtn) {
+    //     window.location.href = "/questions/" + id;
+    // }
+
+    setAnswerBtn.addEventListener("click", () => {
+        // window.location.href = "/questions/" + id;
+        document.Qform.action = "questions/" + id;
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".modal")) {
             modalSetting.classList.add("hidden");
             mask2.classList.add("hidden");
         }
