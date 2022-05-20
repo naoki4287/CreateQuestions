@@ -3,33 +3,42 @@
     const modal = document.getElementById("modal");
     const result = document.getElementById("result");
     const resultList = document.getElementById("resultList");
-    const input = document.getElementById("input");
+    const errorMsg = document.getElementById("errorMsg");
+    const answerInput = document.getElementById("answerInput");
     const btn = document.getElementById("btn");
     const againBtn = document.getElementById("againBtn");
     const QAs = question_answers;
+    const optionInput = setting["optionInput"];
+    const shuffleInput = setting["shuffleInput"];
+    const alertInput = setting["alertInput"];
     const QAsLength = QAs.length;
     let QAsIndex = 0;
     let score = 0;
     let userAnswers = [];
 
+    // answerInput.addEventListener("focus", () => {
+    //     answerInput.value = "";
+    // });
+
     const setupQuiz = () => {
         question.textContent = QAs[QAsIndex].question;
-        console.log(question.textContent);
-        // inputの中を初期化
-        input.addEventListener("focus", () => {
-            input.value = "";
-        });
+        answerInput.value = "";
     };
     setupQuiz();
 
     const correctOrWrong = () => {
-        userAnswers[QAsIndex] = input.value;
+        userAnswers[QAsIndex] = answerInput.value;
+        console.log(userAnswers[QAsIndex]);
         if (QAs[QAsIndex].answer === userAnswers[QAsIndex]) {
-            alert("正解!");
+            if (alertInput == true) {
+                alert("正解!");
+            }
             score++;
         } else {
-            alert("不正解!");
-          }
+            if (alertInput == true) {
+                alert("不正解!");
+            }
+        }
         QAsIndex++;
 
         if (QAsIndex < QAsLength) {
@@ -55,9 +64,11 @@
                 Qdiv.textContent = `問題：${QAs[i].question}`;
                 Adiv.textContent = `解答：${userAnswers[i]}`;
                 if (QAs[i].answer === userAnswers[i]) {
-                  Adiv.innerHTML +=  "<span style='float:right;'><i class='fa-regular fa-circle'></i></span>";
+                    Adiv.innerHTML +=
+                        "<span style='float:right;'><i class='fa-regular fa-circle'></i></span>";
                 } else {
-                  Adiv.innerHTML +=  "<span style='float:right; color:red;'><i class='fa-solid fa-xmark fa-lg'></i></span>";
+                    Adiv.innerHTML +=
+                        "<span style='float:right; color:red;'><i class='fa-solid fa-xmark fa-lg'></i></span>";
                 }
                 hr.textContent = "<hr>";
             }
@@ -73,13 +84,23 @@
     };
 
     // inputに答えを記入してエンターを押したら正誤判定
-    input.onkeydown = (e) => {
-        if (e.key === "Enter") {
-            correctOrWrong();
+    answerInput.onkeydown = (e) => {
+        if (e.key === "Enter" && e.shiftKey == true) {
+          if (!e.isComposing) {
+            if (answerInput.value != "") {
+                // answerInput.blur();
+            errorMsg.textContent = '';
+                correctOrWrong();
+            }
+          } else {
+            errorMsg.textContent = '変換が終了していない場合は解答できません。';
+          }
         }
     };
     // buttonを押したら正誤判定
     btn.addEventListener("click", () => {
-        correctOrWrong();
+        if (answerInput.value != "") {
+            correctOrWrong();
+        }
     });
 }
