@@ -28,19 +28,21 @@ class HomeController extends Controller
 
     return view('home', compact('titles', 'question_answers'));
   }
-
-  public function insert(CreateRequest $request)
-  {
-    $posts = $request->title;
-    // dd($posts);
-    title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
-
-    return redirect(route('home'));
-  }
-
+  
   public function create()
   {
     return view('create');
+  }
+
+  public function insert(CreateRequest $request)
+  {
+    // $posts = $request->title;
+    $title = $request->title;
+    // title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
+    title::insert(['title' => $title, 'user_id' => \Auth::id()]);
+
+    // return redirect(route('home'));
+    return back();
   }
 
   public function add($id)
