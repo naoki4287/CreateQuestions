@@ -1,3 +1,5 @@
+// const { remove } = require("lodash");
+
 {
     const question = document.getElementById("question");
     const modal = document.getElementById("modal");
@@ -11,15 +13,27 @@
     const optionInput = setting["optionInput"];
     const shuffleInput = setting["shuffleInput"];
     const alertInput = setting["alertInput"];
-    const QAsLength = QAs.length;
+    let QAsLength = QAs.length;
     let QAsIndex = 0;
     let score = 0;
     let userAnswers = [];
 
-    // answerInput.addEventListener("focus", () => {
-    //     answerInput.value = "";
-    // });
+    const shuffle = (QAs) => {
+        for (let i = QAs.length - 1; i > 0; i--) {
+            const shuffledIndex = Math.floor(Math.random() * (i + 1));
+            [QAs[shuffledIndex], QAs[i]] = [QAs[i], QAs[shuffledIndex]];
+        }
+        return QAs;
+    };
 
+    if (performance.navigation.type === 0) {
+        console.log(performance.navigation.type);
+        if (shuffleInput === "true") {
+            shuffle(QAs);
+        }
+    }
+
+    console.log(shuffleInput);
     const setupQuiz = () => {
         question.textContent = QAs[QAsIndex].question;
         answerInput.value = "";
@@ -60,7 +74,9 @@
                 resultList.appendChild(Adiv);
                 resultList.appendChild(hr);
                 Adiv.appendChild(span);
-                // Adiv.syle.color = 'red';
+                Qdiv.setAttribute("class", "list");
+                Adiv.setAttribute("class", "list");
+                hr.setAttribute("class", "list");
                 Qdiv.textContent = `問題：${QAs[i].question}`;
                 Adiv.textContent = `解答：${userAnswers[i]}`;
                 if (QAs[i].answer === userAnswers[i]) {
@@ -70,14 +86,24 @@
                     Adiv.innerHTML +=
                         "<span style='float:right; color:red;'><i class='fa-solid fa-xmark fa-lg'></i></span>";
                 }
-                hr.textContent = "<hr>";
             }
 
             againBtn.addEventListener("click", () => {
-                window.location.reload();
+                if (shuffleInput !== "true") {
+                    // リロードは解答結果をリセットするため
+                    window.location.reload();
+                }
                 modal.classList.add("hidden");
                 mask.classList.add("hidden");
+
+                let lists = document.getElementsByClassName("list");
+                lists = Array.from(lists);
+
+                for (let i = 0; i < lists.length; i++) {
+                    lists[i].remove();
+                }
                 QAsIndex = 0;
+                answerInput.focus();
                 setupQuiz();
             });
         }
@@ -86,15 +112,15 @@
     // inputに答えを記入してエンターを押したら正誤判定
     answerInput.onkeydown = (e) => {
         if (e.key === "Enter" && e.shiftKey == true) {
-          if (!e.isComposing) {
-            if (answerInput.value != "") {
-                // answerInput.blur();
-            errorMsg.textContent = '';
-                correctOrWrong();
+            if (!e.isComposing) {
+                if (answerInput.value != "") {
+                    errorMsg.textContent = "";
+                    correctOrWrong();
+                }
+            } else {
+                errorMsg.textContent =
+                    "変換が終了していない場合は解答できません。";
             }
-          } else {
-            errorMsg.textContent = '変換が終了していない場合は解答できません。';
-          }
         }
     };
     // buttonを押したら正誤判定
