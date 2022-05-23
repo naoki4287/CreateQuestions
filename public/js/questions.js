@@ -42,27 +42,31 @@
         }
 
         // resultのモーダルウィンドウ
-        for (let i = 0; i < optionInput; i++) {
-            let Qdiv = document.createElement("div");
-            let Adiv = document.createElement("div");
-            let hr = document.createElement("hr");
-            let span = document.createElement("span");
-            resultList.appendChild(Qdiv);
-            resultList.appendChild(Adiv);
-            resultList.appendChild(hr);
-            Adiv.appendChild(span);
-            Qdiv.setAttribute("class", "list");
-            Adiv.setAttribute("class", "list");
-            hr.setAttribute("class", "list");
-            Qdiv.textContent = `問題：${QAs[i].question}`;
-            Adiv.textContent = `解答：${userAnswers[i]}`;
-            if (QAs[i].answer === userAnswers[i]) {
-                Adiv.innerHTML +=
-                    "<span style='float:right;'><i class='fa-regular fa-circle'></i></span>";
-            } else {
-                Adiv.innerHTML +=
-                    "<span style='float:right; color:red;'><i class='fa-solid fa-xmark fa-lg'></i></span>";
+        try {
+            for (let i = 0; i < optionInput; i++) {
+                let Qdiv = document.createElement("div");
+                let Adiv = document.createElement("div");
+                let hr = document.createElement("hr");
+                let span = document.createElement("span");
+                resultList.appendChild(Qdiv);
+                resultList.appendChild(Adiv);
+                resultList.appendChild(hr);
+                Adiv.appendChild(span);
+                Qdiv.setAttribute("class", "list");
+                Adiv.setAttribute("class", "list");
+                hr.setAttribute("class", "list");
+                Qdiv.textContent = `問題：${QAs[i].question}`;
+                Adiv.textContent = `解答：${userAnswers[i]}`;
+                if (QAs[i].answer === userAnswers[i]) {
+                    Adiv.innerHTML +=
+                        "<span style='float: right;'><i class='fa-regular fa-circle'></i></span>";
+                } else {
+                    Adiv.innerHTML +=
+                        "<span style='float:right; color:red;  margin-right: 2px;'><i class='fa-solid fa-xmark fa-lg'></i></span>";
+                }
             }
+        } catch (e) {
+            console.log("問題がなくなったので結果を表示しています。");
         }
     };
 
@@ -87,15 +91,14 @@
         QAsIndex++;
 
         if (QAs.length < optionInput && QAsIndex === QAs.length) {
-          //    console.log(QAsIndex);
+          // 問題数がoptionInputより少ない時の処理
             console.log("1つ目を通りました");
             modalResult();
         } else if (QAsIndex < optionInput) {
             // 問題がまだあればこちらを実行
             setupQuiz();
         } else {
-          // else いらんかも
-            // 問題がもうなければこちらを実行
+            // 問題数がoptionInputより多く、問題がもうなければこちらを実行
             modalResult();
         }
     };
