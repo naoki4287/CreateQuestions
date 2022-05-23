@@ -22,8 +22,8 @@
     <div class="text-center mt-28">
       @csrf
       <div id="errorMsg" class="text-white"></div>
-      <input class="input w-4/12 h-8 rounded-lg placeholder:pl-2 outline-none relative" type="text" name="answer" id="answerInput" value="" placeholder="解答" autofocus autocomplete="off"><br>
-      <button class="mt-16 w-4/12 bg-blue-500 hover:bg-blue-300 text-white py-2 px-4 rounded-md" id="btn" type="submit">次の問題</button>
+      <input class="input w-4/12 h-8 rounded-lg placeholder:pl-2 outline-none relative" type="text" name="answer" id="answerInput" value="" placeholder="解答  shift+enterで解答できます" autofocus autocomplete="off"><br>
+      <button class="mt-16 w-4/12 bg-blue-500 hover:bg-blue-300 text-white py-2 px-4 rounded-md" id="btn" type="submit">解答する</button>
     </div>
     <div id="mask" class="hidden fixed inset-0 z-0"></div>
     
