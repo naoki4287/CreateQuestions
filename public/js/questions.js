@@ -27,13 +27,11 @@
     };
 
     if (performance.navigation.type === 0) {
-        console.log(performance.navigation.type);
         if (shuffleInput === "true") {
             shuffle(QAs);
         }
     }
 
-    console.log(shuffleInput);
     const setupQuiz = () => {
         question.textContent = QAs[QAsIndex].question;
         answerInput.value = "";
@@ -42,14 +40,13 @@
 
     const correctOrWrong = () => {
         userAnswers[QAsIndex] = answerInput.value;
-        console.log(userAnswers[QAsIndex]);
         if (QAs[QAsIndex].answer === userAnswers[QAsIndex]) {
-            if (alertInput == true) {
+            if (alertInput === "false") {
                 alert("正解!");
             }
             score++;
         } else {
-            if (alertInput == true) {
+            if (alertInput === "false") {
                 alert("不正解!");
             }
         }
