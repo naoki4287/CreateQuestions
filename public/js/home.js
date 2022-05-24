@@ -78,12 +78,7 @@ answerBtn.addEventListener("click", () => {
     //   }
     // })
 
-    // if (!NoSettingBtn) {
-    //     window.location.href = "/questions/" + id;
-    // }
-
     setAnswerBtn.addEventListener("click", () => {
-        // window.location.href = "/questions/" + id;
         document.Qform.action = "questions/" + id;
     });
 
@@ -94,6 +89,11 @@ answerBtn.addEventListener("click", () => {
         }
     });
 });
+
+// タイトル
+heading.addEventListener('click', () => {
+  
+})
 
 // 追加ボタン
 addBtn.addEventListener("click", () => {
@@ -113,8 +113,6 @@ deleteBtn.addEventListener("click", () => {
     titleID.setAttribute("value", id);
     console.log(titleID);
 });
-
-// 2つ目のモーダルウィンドウでボタンを押された時の処理
 
 // li要素（listTitle）にid属性を付与してli要素にtitleを代入する処理
 titles.map((title) => {
