@@ -1,6 +1,8 @@
 <x-app-layout>
   <div>
-    <form class="text-center mt-60" action="{{ route('update') }}" method="POST">
+    <div class="text-center">
+    </div>
+    <form class="text-center mt-32" action="{{ route('update') }}" method="POST">
       @csrf
       <input type="hidden" name="QAID" value="{{ $question_answer['id'] }}">
       <input type="hidden" name="titleID" value="{{ $question_answer['title_id'] }}">
