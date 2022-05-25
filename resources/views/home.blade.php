@@ -1,5 +1,6 @@
 <x-app-layout>
   <div class="">
+    <!-- <div class="flex justify-end"><i id="settingBtn" class="fa-solid fa-gear fa-3x p-1 text-white bg-red-500 cursor-pointer"></i></div> -->
 
     <div id="modal" class="modal hidden w-6/12 text-white bg-indigo-600  rounded-lg absolute z-10">
       <div id="heading" class="pl-7 pt-6 pb-2 text-2xl border-b-2"></div>
@@ -27,9 +28,8 @@
         </div>
         <div class="border-b-2 py-4">問題の順番をシャッフルする<input id="shuffleBtn" type="checkbox" class="text-green-500 ml-4"></div>
         <div class="border-b-2 py-4">正誤判定のアラートを消す<input id="alertBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        {{-- <div class="border-b-2 py-4">解答する前に設定画面を表示しない<input id="NoSettingBtn" type="checkbox" class="text-green-500 ml-4"></div> --}}
         <form action="" name="Qform" method="GET">
-          {{-- @csrf --}}
+          @csrf
           <div class="text-center">
             <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
             <input type="hidden" id="optionInput" name="optionInput" value="">
@@ -45,7 +45,7 @@
     @if (count($titles) === 0)
     <h1 class="text-center mt-80 text-3xl text-white">作成したページはありません。<br>右下の＋ボタンを押して問題を作成してください。</h1>
     @else
-    <ul id="questions" class="my-20 mx-auto text-white w-6/12">
+    <ul id="questions" class="mt-10 mx-auto text-white w-6/12">
       @foreach ($titles as $title)
       <li class="listTitle w-full border-2 border-white truncate mx-auto mb-2 pl-6 py-4 rounded-md cursor-pointer hover:bg-indigo-600"></li>
       @endforeach
@@ -53,7 +53,7 @@
     @endif
 
     <div class="flex justify-end">
-      <a href="{{ route('create') }}"><i class="fas fa-4x fa-plus-circle fixed text-white bottom-28 right-20"></i></a>
+      <a href="{{ route('create') }}"><i id="createBtn" class="fas fa-4x fa-plus-circle  text-white "></i></a>
     </div>
   </div>
 

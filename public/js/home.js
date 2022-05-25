@@ -1,5 +1,6 @@
 "use strict";
 
+const settingBtn = document.getElementById("settingBtn");
 const heading = document.getElementById("heading");
 const answerBtn = document.getElementById("answerBtn");
 const addBtn = document.getElementById("addBtn");
@@ -23,8 +24,6 @@ let listTitle = document.getElementsByClassName("listTitle");
 
 let titlesIndex = 0;
 
-// console.log(listTitle);
-// console.log(titles);
 console.log(QAs);
 
 const shuffle = (QAs) => {
@@ -75,6 +74,7 @@ answerBtn.addEventListener("click", () => {
     // NoSettingBtn.addEventListener('click', () => {
     //   if (NoSettingBtn.checked) {
     //     let settingOff = true;
+    //     return settingOff;
     //   }
     // })
 
@@ -90,10 +90,11 @@ answerBtn.addEventListener("click", () => {
     });
 });
 
-// タイトル
-heading.addEventListener('click', () => {
-  
-})
+// 設定ボタン
+// settingBtn.addEventListener("click", () => {
+//   modalSetting.classList.remove("hidden");
+//   mask2.classList.remove("hidden");
+// });
 
 // 追加ボタン
 addBtn.addEventListener("click", () => {
@@ -130,13 +131,10 @@ document.addEventListener("click", (e) => {
     } else {
         modal.classList.remove("hidden");
         mask.classList.remove("hidden");
-        // console.log(e.target.closest(".listTitle"));
         let id = e.target.getAttribute("id");
-        // console.log(id);
         const searchedTitle = titles.filter((title) => {
             return id == title.id;
         });
-        // console.log(searchedTitle);
         heading.textContent = `${searchedTitle[0].title}`;
         heading.setAttribute("title", id);
     }
