@@ -1,3 +1,15 @@
+#settingBtn {
+  position: absolute;
+  margin-right: 8%;
+  margin-top: 4%;
+}
+
+#createBtn {
+  position: absolute;
+  bottom: 16%;
+  right: 8%;
+}
+
 #modal {
   /* transform: translate(0, -500px); */
 }
