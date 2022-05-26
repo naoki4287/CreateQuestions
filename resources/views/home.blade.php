@@ -28,6 +28,7 @@
         </div>
         <div class="border-b-2 py-4">問題の順番をシャッフルする<input id="shuffleBtn" type="checkbox" class="text-green-500 ml-4"></div>
         <div class="border-b-2 py-4">正誤判定の音を消す<input id="musicBtn" type="checkbox" class="text-green-500 ml-4"></div>
+        <div class="border-b-2 py-4">正誤判定の◯と✖️を出さない<input id="markBtn" type="checkbox" class="text-green-500 ml-4"></div>
         <form action="" name="Qform" method="GET">
           @csrf
           <div class="text-center">
