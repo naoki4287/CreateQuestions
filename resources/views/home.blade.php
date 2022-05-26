@@ -30,13 +30,13 @@
         問題数
         </div>
         <div class="border-b-2 py-4">
-          <input id="shuffleBtn" type="checkbox" class=" text-green-500 mr-4" name="shuffleBtn" value="false">問題の順番をシャッフルする
+          <input id="shuffleBtn" type="checkbox" class=" text-green-500 mr-4" name="shuffleBtn"><label for="shuffleBtn" class="cursor-pointer">問題の順番をシャッフルする</label> 
         </div>
         <div class="border-b-2 py-4">
-        <input id="musicBtn" type="checkbox" class="text-green-500 mr-4" name="musicBtn" value="false">正誤判定の音を消す
+        <input id="musicBtn" type="checkbox" class="text-green-500 mr-4" name="musicBtn"><label for="musicBtn" class="cursor-pointer">正誤判定の音を消す</label>
         </div>
         <div class="border-b-2 py-4">
-        <input id="markBtn" type="checkbox" class="text-green-500 mr-4" name="markBtn" value="false">正誤判定の◯と✖️を出さない
+        <input id="markBtn" type="checkbox" class="text-green-500 mr-4" name="markBtn"><label for="markBtn" class="cursor-pointer">正誤判定の◯と✖️を出さない</label>
         </div>
           <div class="text-center">
             <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>

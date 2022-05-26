@@ -1,15 +1,15 @@
 <x-app-layout>
   <div class="">
-     
+
     <div id="modal" class="hidden w-80 text-white bg-indigo-600  rounded-lg z-10">
       <div class="p-8 rounded-lg">
         <div id="result" class="mb-8"></div>
         <ul id="resultList">
         </ul>
       </div>
-      <div class="text-center">
-        <a href="/"><button class="w-4/12 mb-8 p-2 border-2 border-white rounded-lg">HOME</button></a>
-        <button id="againBtn" class="w-4/12 mb-8 p-2 border-2 border-white rounded-lg">もう一度</button>
+      <div class="text-center space-x-4">
+        <a href="/"><button class="w-4/12 mb-8 p-2 border-2 border-white hover:bg-indigo-900 rounded-lg">HOME</button></a>
+        <button id="againBtn" class="w-4/12 mb-8 p-2 border-2 border-white hover:bg-indigo-900 rounded-lg">もう一度</button>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
     <script>
       const question_answers = @json($question_answers);
       const setting = @json($setting);
-      </script>
+    </script>
     <script type="module" src="{{ asset('js/questions.js') }}"></script>
   </div>
 </x-app-layout>

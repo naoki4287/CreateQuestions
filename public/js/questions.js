@@ -107,10 +107,10 @@
                 }, 500);
             }
             if (markBtn == null) {
-              cross.classList.remove("invisible");
-              setTimeout(() => {
-                  cross.classList.add("invisible");
-              }, 500);
+                cross.classList.remove("invisible");
+                setTimeout(() => {
+                    cross.classList.add("invisible");
+                }, 500);
             }
         }
 
@@ -154,15 +154,18 @@
 
     // inputに答えを記入してエンターを押したら正誤判定
     answerInput.onkeydown = (e) => {
+        errorMsg.textContent = "";
         if (e.key === "Enter" && e.shiftKey == true) {
-            if (!e.isComposing) {
-                if (answerInput.value != "") {
+            if (answerInput.value != "") {
+                if (!e.isComposing) {
                     errorMsg.textContent = "";
                     correctOrWrong();
+                } else {
+                    errorMsg.textContent =
+                        "変換が終了していない場合は解答できません。";
                 }
             } else {
-                errorMsg.textContent =
-                    "変換が終了していない場合は解答できません。";
+                errorMsg.textContent = "空欄では解答できません。";
             }
         }
     };

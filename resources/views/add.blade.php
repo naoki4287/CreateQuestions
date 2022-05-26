@@ -1,6 +1,6 @@
 <x-app-layout>
   <div>
-    <div class="text-white text-center text-3xl relative top-32">
+    <div class="text-white text-center text-3xl relative top-40">
       {{ $add_title['title']}}
     </div>
     <form class="text-center mt-60" action="{{ route('make') }}" name="create_question" method="post">
