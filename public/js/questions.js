@@ -12,10 +12,14 @@
     const QAs = question_answers;
     const optionInput = setting["optionInput"];
     const shuffleInput = setting["shuffleInput"];
-    const alertInput = setting["alertInput"];
+    const musicInput = setting["musicInput"];
     let QAsIndex = 0;
     let score = 0;
     let userAnswers = [];
+    let correctMusic = new Audio("../correct_music.mp3");
+    let wrongMusic = new Audio("../wrong_music.mp3");
+    console.log(correctMusic);
+    console.log(wrongMusic);
 
     const shuffle = (QAs) => {
         for (let i = QAs.length - 1; i > 0; i--) {
@@ -79,20 +83,19 @@
     const correctOrWrong = () => {
         userAnswers[QAsIndex] = answerInput.value;
         if (QAs[QAsIndex].answer === userAnswers[QAsIndex]) {
-            if (alertInput === "false") {
-                alert("正解!");
+            if (musicInput === "false") {
+              correctMusic.play();
             }
             score++;
-        } else {
-            if (alertInput === "false") {
-                alert("不正解!");
+          } else {
+            if (musicInput === "false") {
+              wrongMusic.play();
             }
         }
         QAsIndex++;
 
         if (QAs.length < optionInput && QAsIndex === QAs.length) {
-          // 問題数がoptionInputより少ない時の処理
-            console.log("1つ目を通りました");
+            // 問題数がoptionInputより少ない時の処理
             modalResult();
         } else if (QAsIndex < optionInput) {
             // 問題がまだあればこちらを実行
