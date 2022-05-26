@@ -27,10 +27,13 @@
     </div>
     <div id="mask" class="hidden fixed inset-0 z-0"></div>
     
+    <!-- <audio src="/Quiz-Correct_Answer.mp3" type="audio/mp3" controls>利用できません</audio> -->
+    <!-- <audio src="/Quiz-Wrong_Buzzer02-1.mp3" type="audio/mp3" controls>利用できません</audio> -->
+
     <script>
       const question_answers = @json($question_answers);
       const setting = @json($setting);
-    </script>
+      </script>
     <script type="module" src="{{ asset('js/questions.js') }}"></script>
   </div>
 </x-app-layout>

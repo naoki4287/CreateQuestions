@@ -613,12 +613,6 @@ select {
 .top-36 {
   top: 9rem;
 }
-.bottom-28 {
-  bottom: 7rem;
-}
-.right-20 {
-  right: 5rem;
-}
 .top-16 {
   top: 4rem;
 }
@@ -655,10 +649,6 @@ select {
 .m-auto {
   margin: auto;
 }
-.my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -666,10 +656,6 @@ select {
 .mx-20 {
   margin-left: 5rem;
   margin-right: 5rem;
-}
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -703,6 +689,9 @@ select {
 }
 .mt-80 {
   margin-top: 20rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -754,15 +743,6 @@ select {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.mb-12 {
-  margin-bottom: 3rem;
-}
-.mt-10 {
-  margin-top: 2.5rem;
 }
 .block {
   display: block;
@@ -841,15 +821,6 @@ select {
 }
 .w-5\/12 {
   width: 41.666667%;
-}
-.w-1 {
-  width: 0.25rem;
-}
-.w-11 {
-  width: 2.75rem;
-}
-.w-11\/12 {
-  width: 91.666667%;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1011,6 +982,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
 .bg-indigo-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(79 70 229 / var(--tw-bg-opacity));
@@ -1031,10 +1006,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -1043,12 +1014,11 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
 .fill-current {
   fill: currentColor;
+}
+.p-1 {
+  padding: 0.25rem;
 }
 .p-2 {
   padding: 0.5rem;
@@ -1061,9 +1031,6 @@ select {
 }
 .p-4 {
   padding: 1rem;
-}
-.p-1 {
-  padding: 0.25rem;
 }
 .px-4 {
   padding-left: 1rem;

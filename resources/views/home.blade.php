@@ -27,14 +27,14 @@
           </select>
         </div>
         <div class="border-b-2 py-4">問題の順番をシャッフルする<input id="shuffleBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        <div class="border-b-2 py-4">正誤判定のアラートを消す<input id="alertBtn" type="checkbox" class="text-green-500 ml-4"></div>
+        <div class="border-b-2 py-4">正誤判定の音を消す<input id="musicBtn" type="checkbox" class="text-green-500 ml-4"></div>
         <form action="" name="Qform" method="GET">
           @csrf
           <div class="text-center">
             <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
             <input type="hidden" id="optionInput" name="optionInput" value="">
             <input type="hidden" id="shuffleInput" name="shuffleInput" value="">
-            <input type="hidden" id="alertInput" name="alertInput" value="">
+            <input type="hidden" id="musicInput" name="musicInput" value="">
           </div>
         </form>
       </div>  
