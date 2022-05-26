@@ -37,7 +37,6 @@ class UpdateRequest extends FormRequest
   {
     return [
       'question.required' => '問題は必ず入力してください',
-      // 'question.unique' => '同じ問題は保存できません',
       'question.max' => '問題は1000字以内で入力してください',
       'answer.required' => '解答は必ず入力してください',
       'answer.max' => '解答は1000字以内で入力してください',
