@@ -5,21 +5,22 @@
     const modal = document.getElementById("modal");
     const result = document.getElementById("result");
     const resultList = document.getElementById("resultList");
+    const circle = document.getElementById("circle");
+    const cross = document.getElementById("cross");
     const errorMsg = document.getElementById("errorMsg");
     const answerInput = document.getElementById("answerInput");
     const btn = document.getElementById("btn");
     const againBtn = document.getElementById("againBtn");
     const QAs = question_answers;
-    const optionInput = setting["optionInput"];
-    const shuffleInput = setting["shuffleInput"];
-    const musicInput = setting["musicInput"];
+    const numOfQuiz = setting["numOfQuiz"];
+    const shuffleBtn = setting["shuffleBtn"];
+    const musicBtn = setting["musicBtn"];
+    const markBtn = setting["markBtn"];
     let QAsIndex = 0;
     let score = 0;
     let userAnswers = [];
     let correctMusic = new Audio("../correct_music.mp3");
     let wrongMusic = new Audio("../wrong_music.mp3");
-    console.log(correctMusic);
-    console.log(wrongMusic);
 
     const shuffle = (QAs) => {
         for (let i = QAs.length - 1; i > 0; i--) {
@@ -30,7 +31,7 @@
     };
 
     if (performance.navigation.type === 0) {
-        if (shuffleInput === "true") {
+        if (shuffleBtn === "true") {
             shuffle(QAs);
         }
     }
@@ -39,15 +40,15 @@
         // 問題がもうなければこちらを実行
         modal.classList.remove("hidden");
         mask.classList.remove("hidden");
-        if (QAs.length < optionInput) {
+        if (QAs.length < numOfQuiz) {
             result.textContent = `正答率は${score}/${QAs.length}です`;
         } else {
-            result.textContent = `正答率は${score}/${optionInput}です`;
+            result.textContent = `正答率は${score}/${numOfQuiz}です`;
         }
 
         // resultのモーダルウィンドウ
         try {
-            for (let i = 0; i < optionInput; i++) {
+            for (let i = 0; i < numOfQuiz; i++) {
                 let Qdiv = document.createElement("div");
                 let Adiv = document.createElement("div");
                 let hr = document.createElement("hr");
@@ -83,31 +84,56 @@
     const correctOrWrong = () => {
         userAnswers[QAsIndex] = answerInput.value;
         if (QAs[QAsIndex].answer === userAnswers[QAsIndex]) {
-            if (musicInput === "false") {
-              correctMusic.play();
+            if (musicBtn == null) {
+                correctMusic.play();
+                setTimeout(() => {
+                    correctMusic.pause();
+                    correctMusic.currentTime = 0;
+                }, 500);
+            }
+            if (markBtn == null) {
+                circle.classList.remove("invisible");
+                setTimeout(() => {
+                    circle.classList.add("invisible");
+                }, 500);
             }
             score++;
-          } else {
-            if (musicInput === "false") {
-              wrongMusic.play();
+        } else {
+            if (musicBtn == null) {
+                wrongMusic.play();
+                setTimeout(() => {
+                    wrongMusic.pause();
+                    wrongMusic.currentTime = 0;
+                }, 500);
+            }
+            if (markBtn == null) {
+              cross.classList.remove("invisible");
+              setTimeout(() => {
+                  cross.classList.add("invisible");
+              }, 500);
             }
         }
+
         QAsIndex++;
 
-        if (QAs.length < optionInput && QAsIndex === QAs.length) {
-            // 問題数がoptionInputより少ない時の処理
-            modalResult();
-        } else if (QAsIndex < optionInput) {
+        if (QAs.length < numOfQuiz && QAsIndex === QAs.length) {
+            // 問題数がnumOfQuizより少ない時の処理
+            setTimeout(() => {
+                modalResult();
+            }, 500);
+        } else if (QAsIndex < numOfQuiz) {
             // 問題がまだあればこちらを実行
             setupQuiz();
         } else {
-            // 問題数がoptionInputより多く、問題がもうなければこちらを実行
-            modalResult();
+            // 問題数がnumOfQuizより多く、問題がもうなければこちらを実行
+            setTimeout(() => {
+                modalResult();
+            }, 500);
         }
     };
 
     againBtn.addEventListener("click", () => {
-        if (shuffleInput !== "true") {
+        if (shuffleBtn !== "true") {
             // リロードは解答結果をリセットするため
             window.location.reload();
         }

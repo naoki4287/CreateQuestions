@@ -12,11 +12,9 @@ const modalSetting = document.getElementById("modalSetting");
 const numOfQuiz = document.getElementById("numOfQuiz");
 const shuffleBtn = document.getElementById("shuffleBtn");
 const musicBtn = document.getElementById("musicBtn");
-const NoSettingBtn = document.getElementById("NoSettingBtn");
+const markBtn = document.getElementById("markBtn");
+// const NoSettingBtn = document.getElementById("NoSettingBtn");
 const setAnswerBtn = document.getElementById("setAnswerBtn");
-const shuffleInput = document.getElementById("shuffleInput");
-const musicInput = document.getElementById("musicInput");
-const optionInput = document.getElementById("optionInput");
 const mask = document.getElementById("mask");
 const mask2 = document.getElementById("mask2");
 
@@ -43,32 +41,32 @@ answerBtn.addEventListener("click", () => {
 
     // 問題数の処理
     let Qnum = numOfQuiz.value;
-    optionInput.setAttribute("value", Qnum);
-    console.log(optionInput.value);
     numOfQuiz.onchange = () => {
         Qnum = numOfQuiz.value;
-        optionInput.setAttribute("value", Qnum);
-        console.log(optionInput.value);
+        numOfQuiz.setAttribute("value", Qnum);
     };
 
     // シャッフルの処理
-    shuffleInput.value = false;
     shuffleBtn.addEventListener("click", () => {
         if (shuffleBtn.checked) {
-            shuffleInput.value = true;
-            // const shuffledQuiz = shuffle([...QAs]);
-            // console.log(shuffledQuiz);
+            shuffleBtn.value = true;
         }
     });
 
     // アラートを消す処理
-    musicInput.value = false;
+    musicBtn.value = false;
+    console.log(musicBtn.value);
     musicBtn.addEventListener("click", () => {
         if (musicBtn.checked) {
-            musicInput.value = true;
-            console.log(musicInput.value);
+            musicBtn.value = true;
         }
     });
+
+    markBtn.addEventListener("click", () => {
+      if (markBtn.checked) {
+          markBtn.value = true;
+      }
+  });
 
     // 設定画面を表示しない処理　後で作成する
     // NoSettingBtn.addEventListener('click', () => {

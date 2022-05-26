@@ -96,7 +96,7 @@ class HomeController extends Controller
   public function questions(Request $request, $id)
   {
     $title = title::find($id);
-    $setting = $request->only(['optionInput', 'shuffleInput', 'musicInput']);
+    $setting = $request->only(['numOfQuiz', 'shuffleBtn', 'musicBtn', 'markBtn']);
     // dd($setting);
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
