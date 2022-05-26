@@ -11,11 +11,11 @@ const questions = document.getElementById("questions");
 const modalSetting = document.getElementById("modalSetting");
 const numOfQuiz = document.getElementById("numOfQuiz");
 const shuffleBtn = document.getElementById("shuffleBtn");
-const alertBtn = document.getElementById("alertBtn");
+const musicBtn = document.getElementById("musicBtn");
 const NoSettingBtn = document.getElementById("NoSettingBtn");
 const setAnswerBtn = document.getElementById("setAnswerBtn");
 const shuffleInput = document.getElementById("shuffleInput");
-const alertInput = document.getElementById("alertInput");
+const musicInput = document.getElementById("musicInput");
 const optionInput = document.getElementById("optionInput");
 const mask = document.getElementById("mask");
 const mask2 = document.getElementById("mask2");
@@ -62,11 +62,11 @@ answerBtn.addEventListener("click", () => {
     });
 
     // アラートを消す処理
-    alertInput.value = false;
-    alertBtn.addEventListener("click", () => {
-        if (alertBtn.checked) {
-            alertInput.value = true;
-            console.log(alertInput.value);
+    musicInput.value = false;
+    musicBtn.addEventListener("click", () => {
+        if (musicBtn.checked) {
+            musicInput.value = true;
+            console.log(musicInput.value);
         }
     });
 
