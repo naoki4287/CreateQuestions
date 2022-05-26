@@ -19,22 +19,27 @@
     <div id="modalSetting" class="modal hidden w-6/12 m-auto text-white bg-indigo-600  rounded-lg z-20">
       <div class="pl-7 pt-6 pb-2 text-2xl border-b-2">設定</div>
       <div class="mb-8 pl-8">
-        <div class="border-b-2 py-4">問題数
-          <select name="" id="numOfQuiz" size="1" class="numOfQuiz text-gray-900 ml-4">
+        <form action="" name="Qform" method="GET">
+          @csrf
+          <div class="border-b-2 py-4">
+          <select name="numOfQuiz" id="numOfQuiz" size="1" class="numOfQuiz text-gray-900 mr-4">
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
           </select>
+        問題数
         </div>
-        <div class="border-b-2 py-4">問題の順番をシャッフルする<input id="shuffleBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        <div class="border-b-2 py-4">正誤判定の音を消す<input id="musicBtn" type="checkbox" class="text-green-500 ml-4"></div>
-        <form action="" name="Qform" method="GET">
-          @csrf
+        <div class="border-b-2 py-4">
+          <input id="shuffleBtn" type="checkbox" class=" text-green-500 mr-4" name="shuffleBtn"><label for="shuffleBtn" class="cursor-pointer">問題の順番をシャッフルする</label> 
+        </div>
+        <div class="border-b-2 py-4">
+        <input id="musicBtn" type="checkbox" class="text-green-500 mr-4" name="musicBtn"><label for="musicBtn" class="cursor-pointer">正誤判定の音を消す</label>
+        </div>
+        <div class="border-b-2 py-4">
+        <input id="markBtn" type="checkbox" class="text-green-500 mr-4" name="markBtn"><label for="markBtn" class="cursor-pointer">正誤判定の◯と✖️を出さない</label>
+        </div>
           <div class="text-center">
             <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
-            <input type="hidden" id="optionInput" name="optionInput" value="">
-            <input type="hidden" id="shuffleInput" name="shuffleInput" value="">
-            <input type="hidden" id="musicInput" name="musicInput" value="">
           </div>
         </form>
       </div>  

@@ -7,9 +7,17 @@
     /* transform: translate(-50%, -50%); */
 }
 
-/* #modal.hidden {
-  translate: translate(0, -500px);
-}; */
+#circle {
+  position: relative;
+  bottom: 20px;
+  left: 30px;
+}
+
+#cross {
+  position: relative;
+  bottom: 20px;
+  right: 44px;
+}
 
 #mask {
     background: rgba(0, 0, 0, 0.4);

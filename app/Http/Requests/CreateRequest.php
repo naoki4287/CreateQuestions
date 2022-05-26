@@ -29,7 +29,7 @@ class CreateRequest extends FormRequest
   public function rules()
   {
     return [
-      'title' => 'required|unique:titles|max:20',
+      'title' => 'required|max:20',
     ];
   }
 
@@ -37,7 +37,6 @@ class CreateRequest extends FormRequest
   {
     return [
       'title.required' => 'タイトルは必ず入力してください',
-      'title.unique' => '同じ名前は保存できません',
       'title.max' => '20字以内で入力してください'
     ];
   }

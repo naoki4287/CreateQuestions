@@ -24,7 +24,6 @@ class HomeController extends Controller
       ->where('titles.user_id', '=', \Auth::id())
       ->where('question_answers.user_id', '=', \Auth::id())
       ->get();
-      // dd($question_answers);
 
     return view('home', compact('titles', 'question_answers'));
   }
@@ -36,13 +35,10 @@ class HomeController extends Controller
 
   public function insert(CreateRequest $request)
   {
-    // $posts = $request->title;
     $title = $request->title;
-    // title::insert(['title' => $posts['title'], 'user_id' => \Auth::id()]);
     title::insert(['title' => $title, 'user_id' => \Auth::id()]);
 
-    // return redirect(route('home'));
-    return back();
+    return redirect(route('home'));
   }
 
   public function add($id)
@@ -96,8 +92,7 @@ class HomeController extends Controller
   public function questions(Request $request, $id)
   {
     $title = title::find($id);
-    $setting = $request->only(['optionInput', 'shuffleInput', 'musicInput']);
-    // dd($setting);
+    $setting = $request->only(['numOfQuiz', 'shuffleBtn', 'musicBtn', 'markBtn']);
     $question_answers = question_answer::select('question_answers.*')
       ->where('user_id', '=', \Auth::id())
       ->where('title_id', '=', $title['id'])
