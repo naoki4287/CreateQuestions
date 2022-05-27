@@ -20,7 +20,6 @@
       <div class="pl-7 pt-6 pb-2 text-2xl border-b-2">設定</div>
       <div class="mb-8 pl-8">
         <form action="" name="Qform" method="GET">
-          @csrf
           <div class="border-b-2 py-4">
           <select name="numOfQuiz" id="numOfQuiz" size="1" class="numOfQuiz text-gray-900 mr-4">
             <option value="10">10</option>

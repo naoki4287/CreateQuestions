@@ -40,7 +40,7 @@
         <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
       </div>
       
-      <x-button class="mt-8 float-left bg-slate-600">
+      <x-button class="mt-8 float-left bg-blue-600 hover:bg-blue-900">
         <a href="{{ route('login.guest') }}" class="text-block-700">
           ゲストログイン
         </a>

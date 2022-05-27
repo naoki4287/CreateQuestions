@@ -19,7 +19,7 @@ class HomeController extends Controller
       ->orderBy('updated_at', 'DESC')
       ->get();
     
-      $question_answers = title::select('question_answers.question', 'question_answers.answer')
+      $question_answers = title::select('question_answers.question', 'question_answers.answer', 'question_answers.title_id')
       ->join('question_answers', 'titles.id', '=', 'question_answers.title_id')
       ->where('titles.user_id', '=', \Auth::id())
       ->where('question_answers.user_id', '=', \Auth::id())

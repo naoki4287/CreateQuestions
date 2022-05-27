@@ -32,12 +32,28 @@ const shuffle = (QAs) => {
     return QAs;
 };
 
-// 1つ目のモーダルウィンドウでボタンを押された時の処理
+const noQAs = (QAsExistCheck, id) => {
+    if (QAsExistCheck.length === 0) {
+        alert("問題がありません。");
+        window.location.href = "/add/" + id;
+    }
+};
+
+// 1つ目のモーダルウィンドウで解答ボタンを押された時の処理
 answerBtn.addEventListener("click", () => {
     // ここにモーダルウィンドウを表示する処理
     modalSetting.classList.remove("hidden");
     mask2.classList.remove("hidden");
     let id = heading.getAttribute("title");
+
+    const QAsExistCheck = QAs.filter((QA) => {
+        return QA.title_id == id;
+    });
+
+    if (QAsExistCheck.length === 0) {
+        alert("問題がありません。");
+        window.location.href = "/add/" + id;
+    }
 
     // 問題数の処理
     let Qnum = numOfQuiz.value;
@@ -63,18 +79,10 @@ answerBtn.addEventListener("click", () => {
     });
 
     markBtn.addEventListener("click", () => {
-      if (markBtn.checked) {
-          markBtn.value = true;
-      }
-  });
-
-    // 設定画面を表示しない処理　後で作成する
-    // NoSettingBtn.addEventListener('click', () => {
-    //   if (NoSettingBtn.checked) {
-    //     let settingOff = true;
-    //     return settingOff;
-    //   }
-    // })
+        if (markBtn.checked) {
+            markBtn.value = true;
+        }
+    });
 
     setAnswerBtn.addEventListener("click", () => {
         document.Qform.action = "questions/" + id;
@@ -88,12 +96,6 @@ answerBtn.addEventListener("click", () => {
     });
 });
 
-// 設定ボタン
-// settingBtn.addEventListener("click", () => {
-//   modalSetting.classList.remove("hidden");
-//   mask2.classList.remove("hidden");
-// });
-
 // 追加ボタン
 addBtn.addEventListener("click", () => {
     let id = heading.getAttribute("title");
@@ -103,11 +105,20 @@ addBtn.addEventListener("click", () => {
 // 編集ボタン
 editBtn.addEventListener("click", () => {
     let id = heading.getAttribute("title");
-    window.location.href = "/questionlists/" + id;
+    const QAsExistCheck = QAs.filter((QA) => {
+        return QA.title_id == id;
+    });
+    if (QAsExistCheck.length === 0) {
+        alert("問題がありません。");
+        window.location.href = "/add/" + id;
+    } else {
+        window.location.href = "/questionlists/" + id;
+    }
 });
 
 // 削除ボタン
 deleteBtn.addEventListener("click", () => {
+    alert("本当に削除しますか？");
     let id = heading.getAttribute("title");
     titleID.setAttribute("value", id);
     console.log(titleID);

@@ -148,6 +148,7 @@
         }
 
         QAsIndex = 0;
+        score = 0;
         answerInput.focus();
         setupQuiz();
     });
