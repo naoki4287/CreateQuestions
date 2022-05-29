@@ -133,7 +133,7 @@
     };
 
     againBtn.addEventListener("click", () => {
-        if (shuffleBtn !== "true") {
+        if (shuffleBtn == null) {
             // リロードは解答結果をリセットするため
             window.location.reload();
         }
