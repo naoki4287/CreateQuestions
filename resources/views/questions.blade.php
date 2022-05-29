@@ -1,7 +1,7 @@
 <x-app-layout>
   <div class="">
 
-    <div id="modal" class="hidden w-80 text-white bg-indigo-600  rounded-lg z-10">
+    <div id="modal" class="hidden w-6/12 text-white bg-indigo-600  rounded-lg z-10">
       <div class="p-8 rounded-lg">
         <div id="result" class="mb-8"></div>
         <ul id="resultList">
