@@ -47,7 +47,7 @@
     <div id="mask2" class="hidden fixed inset-0 z-0"></div>
 
     @if (count($titles) === 0)
-    <h1 class="text-center mt-80 text-3xl text-white">作成したページはありません。<br>右下の＋ボタンを押して問題を作成してください。</h1>
+    <h1 class="text-center mt-60 text-3xl text-white">作成したページはありません。<br>右下の＋ボタンを押して問題を作成してください。</h1>
     @else
     <ul id="questions" class="mt-10 mx-auto text-white w-6/12">
       @foreach ($titles as $title)
