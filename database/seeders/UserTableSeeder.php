@@ -21,11 +21,11 @@ class UserTableSeeder extends Seeder
       'password' => 'password123'
     ];
     DB::table('users')->insert($users);
-    $users = [
-      'name' => 'wakabayashi',
-      'email' => 'waka@bayashi',
-      'password' => 'password'
-    ];
-    DB::table('users')->insert($users);
+    // $users = [
+    //   'name' => 'wakabayashi',
+    //   'email' => 'waka@bayashi',
+    //   'password' => 'password'
+    // ];
+    // DB::table('users')->insert($users);
   }
 }
