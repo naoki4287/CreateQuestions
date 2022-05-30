@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$db = parse_url(env('DATABASE_URL'));
+
 return [
 
   /*
@@ -43,14 +45,19 @@ return [
       'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
     ],
 
+    // heroku デプロイの時いじったところはコメントで変更前のコードを残している
     'mysql' => [
       'driver' => 'mysql',
       'url' => env('DATABASE_URL'),
-      'host' => env('DB_HOST', '127.0.0.1'),
+      // 'host' => env('DB_HOST', '127.0.0.1'),
+      'host' => $db['host'],
       'port' => env('DB_PORT', '3306'),
-      'database' => env('DB_DATABASE', 'forge'),
-      'username' => env('DB_USERNAME', 'forge'),
-      'password' => env('DB_PASSWORD', ''),
+      // 'database' => env('DB_DATABASE', 'forge'),
+      'database' => ltrim($db['path'], '/'),
+      // 'username' => env('DB_USERNAME', 'forge'),
+      'username' => $db['user'],
+      // 'password' => env('DB_PASSWORD', ''),
+      'password' => $db['pass'],
       'unix_socket' => env('DB_SOCKET', ''),
       'charset' => 'utf8mb4',
       'collation' => 'utf8mb4_unicode_ci',
