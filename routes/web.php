@@ -15,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('guest', [AuthenticatedSessionController::class,'guestLogin'])->name('login.guest');
-
-Route::get('/', [HomeController::class, 'home'])->middleware(['auth'])->name('home');
-Route::get('/create', [HomeController::class, 'create'])->name('create');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/create', [HomeController::class, 'create'])->middleware(['auth'])->name('create');
 Route::post('/insert', [HomeController::class, 'insert'])->name('insert');
 Route::get('/add/{id}', [HomeController::class, 'add'])->name('add');
 Route::post('/make', [HomeController::class, 'make'])->name('make');

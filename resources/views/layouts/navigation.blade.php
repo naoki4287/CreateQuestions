@@ -6,7 +6,15 @@
         <!-- Navigation Links -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-            {{ __('Home') }}
+            {{ __('ホーム') }}
+          </x-nav-link>
+        </div>
+
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+            @guest
+            {{ __('ユーザー登録') }}
+            @endguest
           </x-nav-link>
         </div>
       </div>
@@ -16,7 +24,7 @@
         <x-dropdown align="right" width="48">
           <x-slot name="trigger">
             <button class="flex items-center text-sm font-medium text-white hover:border-gray-300 focus:outline-none focus:text-white focus:border-gray-300 transition duration-150 ease-in-out">
-              <div>{{ Auth::user()->name }}</div>
+              <div>{{ Auth::user()->name ?? '未ログイン' }}</div>
 
               <div class="ml-1">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -31,10 +39,17 @@
             <form method="POST" action="{{ route('logout') }}">
               @csrf
 
+              @auth
               <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                {{ __('Log Out') }}
+                {{ __('ログアウト') }}
               </x-dropdown-link>
+              @else
+              <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                {{ __('ユーザー登録してください') }}
+              </x-dropdown-link>
+              @endauth
             </form>
           </x-slot>
         </x-dropdown>
@@ -58,8 +73,8 @@
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200">
       <div class="px-4">
-        <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
-        <div class="font-medium text-sm text-white">{{ Auth::user()->email }}</div>
+        <div class="font-medium text-base text-white">{{ Auth::user()->name ?? '未ログイン' }}</div>
+        <div class="font-medium text-sm text-white">{{ Auth::user()->email ?? '未ログイン' }}</div>
       </div>
 
       <div class="mt-3 space-y-1">
@@ -67,10 +82,17 @@
         <form method="POST" action="{{ route('logout') }}">
           @csrf
 
-          <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-            {{ __('Log Out') }}
-          </x-responsive-nav-link>
+          @auth
+            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                          this.closest('form').submit();">
+              {{ __('ログアウト') }}
+            </x-responsive-nav-link>
+          @else
+            <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                          this.closest('form').submit();">
+              {{ __('ユーザー登録してください') }}
+            </x-responsive-nav-link>
+          @endauth
         </form>
       </div>
     </div>

@@ -40,18 +40,18 @@
         <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
       </div>
       
-      <x-button class="mt-8 float-left bg-blue-600 hover:bg-blue-900">
+      <x-button class="mt-8 float-left bg-blue-600 hover:bg-blue-900 mr-9">
         <a href="{{ route('login.guest') }}" class="text-block-700">
           ゲストログイン
         </a>
       </x-button>
 
-      <div class="flex items-center justify-end mt-8">
-        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-          {{ __('登録済みの方はこちら') }}
+      <div class="flex items-center  mt-8">
+        <a class="underline text-sm text-gray-900 hover:text-gray-900" href="{{ route('login') }}">
+          {{ __('ログインする') }}
         </a>
 
-        <x-button class="ml-4">
+        <x-button class="block  ml-10">
           {{ __('ユーザー登録') }}
         </x-button>
       </div>
