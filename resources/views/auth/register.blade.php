@@ -41,20 +41,20 @@
       </div>
       
       <x-button class="mt-8 float-left bg-blue-600 hover:bg-blue-900 mr-9">
-        <a href="{{ route('login.guest') }}" class="text-block-700">
+        <a href="{{ route('login.guest') }}">
           ゲストログイン
         </a>
       </x-button>
 
-      <div class="flex items-center  mt-8">
-        <a class="underline text-sm text-gray-900 hover:text-gray-900" href="{{ route('login') }}">
+      <span class="flex items-center  mt-8">
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
           {{ __('ログインする') }}
         </a>
 
         <x-button class="block  ml-10">
           {{ __('ユーザー登録') }}
         </x-button>
-      </div>
+      </span>
     </form>
   </x-auth-card>
 </x-guest-layout>
