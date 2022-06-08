@@ -1,7 +1,5 @@
 <x-app-layout>
   <div class="">
-    <!-- <div class="flex justify-end"><i id="settingBtn" class="fa-solid fa-gear fa-3x p-1 text-white bg-red-500 cursor-pointer"></i></div> -->
-
     <div id="modal" class="modal hidden w-6/12 text-white bg-indigo-600  rounded-lg absolute z-10">
       <div id="heading" class="pl-7 pt-6 pb-2 text-2xl border-b-2"></div>
       <div class="mb-8 pl-8 rounded-lg">
