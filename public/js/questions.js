@@ -78,6 +78,7 @@
     const setupQuiz = () => {
         question.textContent = QAs[QAsIndex].question;
         answerInput.value = "";
+        answerInput.focus();
     };
     setupQuiz();
 
@@ -159,6 +160,7 @@
         if (e.key === "Enter" && e.shiftKey == true) {
             if (answerInput.value != "") {
                 if (!e.isComposing) {
+                    e.preventDefault();
                     errorMsg.textContent = "";
                     correctOrWrong();
                 } else {

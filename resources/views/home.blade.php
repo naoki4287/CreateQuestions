@@ -3,13 +3,13 @@
     <div id="modal" class="modal hidden w-6/12 text-white bg-indigo-600  rounded-lg absolute z-10">
       <div id="heading" class="pl-7 pt-6 pb-2 text-2xl border-b-2"></div>
       <div class="mb-8 pl-8 rounded-lg">
-        <div id="answerBtn" class="border-b-2 py-4 cursor-pointer hover:text-yellow-400">解答する<i class="fa-solid fa-play fa-lg pl-8"></i></div>
-        <div id="addBtn" class="border-b-2 py-4 cursor-pointer hover:text-green-400">追加する<i class="fas fa-lg fa-plus-circle pl-8"></i></div>
-        <div id="editBtn" class="border-b-2  py-4 cursor-pointer hover:text-purple-500">編集する<i class="fa-solid fa-pen fa-lg pl-8"></i></div>
+        <div id="answerBtn" class="border-b-2 py-4 cursor-pointer hover:text-yellow-400 hover:bg-indigo-900"><i class="fa-solid fa-play fa-lg mr-8 ml-8"></i>解答する</div>
+        <div id="addBtn" class="border-b-2 py-4 cursor-pointer hover:text-green-400 hover:bg-indigo-900"><i class="fas fa-lg fa-plus-circle mr-8 ml-8"></i>追加する</div>
+        <div id="editBtn" class="border-b-2  py-4 cursor-pointer hover:text-purple-500 hover:bg-indigo-900"><i class="fa-solid fa-pen fa-lg mr-8 ml-8"></i>編集する</div>
         <form class="bg-slate-10" action="/delete" method="POST">
           @csrf
           <input type="hidden" id="titleID" name="titleID">
-          <div id="deleteBtn" class="block border-b-2 cursor-pointer hover:text-red-700"><button class="w-full h-full text-left py-4" type="submit">削除する<i class="fa-solid fa-trash-can fa-lg pl-8"></i></button></div>
+          <div id="deleteBtn" class="block border-b-2 cursor-pointer hover:text-red-700 hover:bg-indigo-900"><button class="w-full h-full text-left py-4 inline-block" type="submit"><i class="fa-solid fa-trash-can fa-lg mr-8 ml-8"></i>削除する</button></div>
         </form>
       </div>  
     </div>
