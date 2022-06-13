@@ -24,8 +24,10 @@
       <i class="fa-regular fa-circle fa-5x invisible text-red-500 z-10 " id="circle"></i>
       <i class="fa-solid fa-xmark fa-5x invisible text-red-500 z-20" id="cross"></i>
       <div id="errorMsg" class="text-white z-0"></div>
-      <input class="input w-4/12 h-8 rounded-lg placeholder:pl-2 outline-none relative z-0" type="text" name="answer" id="answerInput" value="" placeholder="解答  shift+enterで解答できます" autofocus autocomplete="off"><br>
-      <button class="mt-16 w-4/12 bg-blue-500 hover:bg-blue-300 text-white py-2 px-4 rounded-md" id="btn" type="submit">解答する</button>
+      {{-- <input class="input w-4/12 h-8 rounded-lg placeholder:pl-2 outline-none relative z-0" type="text" name="answer" id="answerInput" value="" placeholder="解答  shift+enterで解答できます" autofocus autocomplete="off"><br> --}}
+      <textarea class="w-6/12 placeholder:pt-1 rounded-md outline-none" name="answer" id="answerInput" rows="3" placeholder="解答 &#13;&#10;shift+enterで解答できます" autofocus autocomplete="off"></textarea><br>
+
+      <button class="mt-16 w-6/12 bg-blue-500 hover:bg-blue-300 text-white py-4 px-4 rounded-md" id="btn" type="submit">解答する</button>
     </div>
     <div id="mask" class="hidden fixed inset-0 z-0"></div>
 
