@@ -23,10 +23,11 @@ Route::get('/add/{id}', [HomeController::class, 'add'])->name('add');
 Route::post('/make', [HomeController::class, 'make'])->name('make');
 Route::get('/questionlists/{id}', [HomeController::class, 'questionlists'])->name('questionlists');
 Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
+Route::get('/titleEdit/{id}', [HomeController::class, 'titleEdit'])->name('titleEdit');
 Route::post('/update', [HomeController::class, 'update'])->name('update');
+Route::post('/titleUpdate', [HomeController::class, 'titleUpdate'])->name('titleUpdate');
 Route::post('/delete', [HomeController::class, 'delete'])->name('delete');
 Route::get('/questions/{id}', [HomeController::class, 'questions'])->name('questions');
-Route::get('/result', [HomeController::class, 'result'])->name('result');
 
 
 

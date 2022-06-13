@@ -13,7 +13,7 @@ class CreateRequest extends FormRequest
    */
   public function authorize()
   {
-    if ($this->path() == 'insert')
+    if ($this->path() == 'insert' || $this->path() == 'titleUpdate')
     {
       return true;
     } else {

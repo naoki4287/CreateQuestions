@@ -1,9 +1,7 @@
 <x-app-layout>
   <div>
     <div class="text-center">
-      <div class="inline-block text-white text-2xl  mt-8">
-        {{ $title['title'] }}
-      </div>
+      <a class="inline-block text-white hover:bg-indigo-600 text-2xl  mt-4 p-4 rounded-md" href="/titleEdit/{{ $title['id'] }}">{{ $title['title'] }}</a>
     </div>
     <ul class="mt-12">
       @foreach ($question_answers as $question_answer)
