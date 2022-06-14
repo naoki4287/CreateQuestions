@@ -36,7 +36,7 @@
         <input id="markBtn" type="checkbox" class="text-green-500 mr-4" name="markBtn"><label for="markBtn" class="cursor-pointer">正誤判定の◯と✖️を出さない</label>
         </div>
           <div class="text-center">
-            <button id="setAnswerBtn" type="submit" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300 hover:text-black text-white w-6/12 py-2 rounded-md">解答する</button>
+            <x-mc-button id="setAnswerBtn" class="mt-8 mr-8 bg-indigo-900 hover:bg-indigo-300">解答する</x-mc-button>
           </div>
         </form>
       </div>  
