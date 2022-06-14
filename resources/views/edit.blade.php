@@ -16,7 +16,7 @@
       @enderror
       <textarea class="w-6/12 placeholder:pt-1 rounded-md outline-none" name="question" rows="3" placeholder="問題を作成してください &#13;&#10;問題入力欄右下の//にカーソルを合わせると入力欄を大きくすることができます" autofocus autocomplete="off">{{ $question_answer['question'] }}</textarea><br>
       <textarea class="w-6/12 placeholder:pt-1 rounded-md outline-none" name="answer" rows="3" placeholder="解答" autocomplete="off">{{ $question_answer['answer'] }}</textarea><br>
-      <button class="mt-16 bg-blue-500 hover:bg-blue-300 text-white hover:text-black w-6/12 py-4 rounded-md" type="submit">編集完了</button>
+      <x-mc-button>作成</x-mc-button>
     </form>
   </div>
 </x-app-layout>

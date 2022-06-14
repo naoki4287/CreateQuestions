@@ -18,10 +18,9 @@
       @error('answer')
       <div class="text-white text-center relative bottom-4">{{ $message }}</div>
       @enderror
-      <textarea class="w-6/12 rounded-md outline-none" name="question" rows="3" placeholder="問題を作成してください&#13;&#10;問題入力欄右下の//にカーソルを合わせると入力欄を大きくすることができます" autofocus autocomplete="off">{{ old('question') }}</textarea><br>
-      <textarea class="w-6/12 rounded-md outline-none" name="answer" rows="3" placeholder="解答" autocomplete="off">{{ old('answer') }}</textarea>
-      {{-- <input class="w-6/12 h-8 rounded-md outline-none" type="text" name="answer" placeholder="解答" value="{{ old('answer') }}" autocomplete="off"> --}}
-      <button class="mt-16 bg-blue-500 hover:bg-blue-300 hover:text-black text-white font-bold w-6/12 py-4 rounded-md">作成</button>
+      <x-textarea name="question" rows="3" placeholder="問題を作成してください &#13;&#10;問題入力欄右下の//にカーソルを合わせると入力欄を大きくすることができます" autofocus autocomplete="off">{{ old('question') }}</x-textarea><br>
+      <x-textarea name="answer" rows="3" placeholder="解答" autocomplete="off">{{ old('question') }}</x-textarea><br>
+      <x-mc-button>作成</x-mc-button>
     </form>
   </div>
 </x-app-layout>

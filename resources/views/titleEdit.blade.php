@@ -9,8 +9,8 @@
       <div class="text-white text-center relative bottom-4">{{ $message }}</div>
       @enderror
 
-      <textarea class="w-6/12 placeholder:pt-1 rounded-md outline-none" id="title" name="title" rows="3" placeholder="タイトルを編集してください &#13;&#10;問題入力欄右下の//にカーソルを合わせると入力欄を大きくすることができます" autofocus autocomplete="off">{{ $title['title'] }}</textarea><br>
-      <button class="mt-16 bg-blue-500 hover:bg-blue-300 text-white hover:text-black w-6/12 py-4 rounded-md" type="submit">編集完了</button>
+      <x-textarea id="title" name="title" rows="3" placeholder="タイトルを編集してください &#13;&#10;問題入力欄右下の//にカーソルを合わせると入力欄を大きくすることができます" autofocus autocomplete="off">{{ $title['title'] }}</x-textarea><br>
+      <x-mc-button>作成</x-mc-button>
     </form>
   </div>
 </x-app-layout>
