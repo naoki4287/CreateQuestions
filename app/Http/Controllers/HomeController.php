@@ -51,7 +51,6 @@ class HomeController extends Controller
   {
     $QA = $request->all();
     unset($QA['_token']);
-    // dd($QA);
     question_answer::insert(['question' => $QA['question'], 'answer' => $QA['answer'], 'title_id' => $QA['titleID'], 'user_id' => \Auth::id()]);
 
     return back();

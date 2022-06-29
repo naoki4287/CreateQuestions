@@ -13,7 +13,6 @@ const numOfQuiz = document.getElementById("numOfQuiz");
 const shuffleBtn = document.getElementById("shuffleBtn");
 const musicBtn = document.getElementById("musicBtn");
 const markBtn = document.getElementById("markBtn");
-// const NoSettingBtn = document.getElementById("NoSettingBtn");
 const setAnswerBtn = document.getElementById("setAnswerBtn");
 const mask = document.getElementById("mask");
 const mask2 = document.getElementById("mask2");
@@ -21,8 +20,6 @@ const mask2 = document.getElementById("mask2");
 let listTitle = document.getElementsByClassName("listTitle");
 
 let titlesIndex = 0;
-
-console.log(QAs);
 
 const shuffle = (QAs) => {
     for (let i = QAs.length - 1; i > 0; i--) {
@@ -71,7 +68,6 @@ answerBtn.addEventListener("click", () => {
 
     // アラートを消す処理
     musicBtn.value = false;
-    console.log(musicBtn.value);
     musicBtn.addEventListener("click", () => {
         if (musicBtn.checked) {
             musicBtn.value = true;
@@ -121,7 +117,6 @@ deleteBtn.addEventListener("click", () => {
     alert("本当に削除しますか？");
     let id = heading.getAttribute("title");
     titleID.setAttribute("value", id);
-    console.log(titleID);
 });
 
 // li要素（listTitle）にid属性を付与してli要素にtitleを代入する処理
