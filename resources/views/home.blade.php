@@ -44,7 +44,9 @@
     <div id="mask" class="hidden fixed inset-0 z-0"></div>
     <div id="mask2" class="hidden fixed inset-0 z-0"></div>
 
-    @if (count($titles) === 0)
+    @if (!auth()->user())
+    <h1 class="text-center mt-60 text-3xl text-white">ユーザー登録していない場合は登録してください。<br>登録済みの場合はログインしてください。</h1>
+    @elseif (count($titles) === 0)
     <h1 class="text-center mt-60 text-3xl text-white">作成した問題はありません。<br>右下の＋ボタンを押して問題を作成してください。</h1>
     @else
     <ul id="questions" class="mt-10 mx-auto text-white w-6/12">
@@ -54,9 +56,11 @@
     </ul>
     @endif
 
+    @auth
     <div class="flex justify-end">
       <a href="{{ route('create') }}"><i id="createBtn" class="fas fa-4x fa-plus-circle  text-white "></i></a>
     </div>
+    @endauth
   </div>
 
   <script>

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('guest', [AuthenticatedSessionController::class,'guestLogin'])->name('login.guest');
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/create', [HomeController::class, 'create'])->middleware(['auth'])->name('create');
+Route::get('/create', [HomeController::class, 'create'])->name('create');
 Route::post('/insert', [HomeController::class, 'insert'])->name('insert');
 Route::get('/add/{id}', [HomeController::class, 'add'])->name('add');
 Route::post('/make', [HomeController::class, 'make'])->name('make');
